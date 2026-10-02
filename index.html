@@ -60,7 +60,10 @@ header{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;
 /* ---------- termômetro ---------- */
 .thermo-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:18px}
 @media(max-width:760px){.thermo-kpis{grid-template-columns:1fr 1fr}}
+.thermo-kpis.tk3{grid-template-columns:repeat(3,1fr);margin-top:-8px}
+@media(max-width:760px){.thermo-kpis.tk3{grid-template-columns:1fr}}
 .tk{background:var(--surface-2);border-radius:12px;padding:13px 15px}
+.tk.inv{background:var(--surface);border:1px solid var(--ring)}
 .tk .l{color:var(--muted);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em}
 .tk .v{font-family:var(--disp);font-weight:800;font-size:24px;margin-top:5px;letter-spacing:-.4px}
 .tk .s{font-size:11.5px;color:var(--muted);margin-top:3px}
@@ -293,7 +296,7 @@ footer{color:var(--muted);font-size:11.5px;margin-top:22px;text-align:center}
 <div class="card" style="margin-bottom:12px">
   <div class="card-head">
     <div><h2>Termômetro da meta</h2>
-      <div class="hint">Receita <b style="color:var(--ink-2)">líquida</b> de outubro: faturas pagas na Hubla (vendas novas + recorrência) <span class="badge-med">MEDIDO</span> · a Black de alunos (27–29/10) e a conta Matriz ficam fora</div>
+      <div class="hint">Receita <b style="color:var(--ink-2)">líquida</b> de outubro: faturas pagas na Hubla (vendas novas + recorrência) <span class="badge-med">MEDIDO</span> · a Black de alunos (27–29/10) e a conta Matriz ficam fora · segunda fileira: investimento do plano (Meta + imposto + WhatsApp), o que já saiu e o ROAS do mês</div>
     </div>
   </div>
   <div class="thermo-kpis">
@@ -301,6 +304,11 @@ footer{color:var(--muted);font-size:11.5px;margin-top:22px;text-align:center}
     <div class="tk"><div class="l" id="t-acum-l">Meta acumulada</div><div class="v" id="t-acum">—</div><div class="s" id="t-acum-s">—</div></div>
     <div class="tk proj"><div class="l">Projeção no ritmo atual</div><div class="v" id="t-proj">—</div><div class="s" id="t-proj-s">—</div></div>
     <div class="tk"><div class="l">Falta p/ 366 mil</div><div class="v" id="t-falta">—</div><div class="s" id="t-pace">—</div></div>
+  </div>
+  <div class="thermo-kpis tk3">
+    <div class="tk inv"><div class="l">Investimento do plano</div><div class="v" id="t-inv-plano">—</div><div class="s" id="t-inv-plano-s">—</div></div>
+    <div class="tk inv"><div class="l">Já investido</div><div class="v" id="t-inv-gasto">—</div><div class="s" id="t-inv-gasto-s">—</div></div>
+    <div class="tk inv"><div class="l">ROAS total</div><div class="v" id="t-roas">—</div><div class="s" id="t-roas-s">—</div></div>
   </div>
   <div class="thermo" style="margin-top:50px">
     <div class="track" id="thermo-track">
@@ -607,6 +615,12 @@ function diariaLinha(fr, fase, dia){
   return mes / diasEntre(ini, MES_FIM);
 }
 const diariaFrente = (fr, dia) => FASES.reduce((a,f) => a + diariaLinha(fr, f, dia), 0);
+// investimento total que o plano previa até o dia: Meta das linhas + imposto + templates do calendário + respostas (linear)
+function investimentoPrevisto(hoje){
+  const meta = ORDEM.reduce((a,fr) => a + FASES.reduce((b,k) => b + previstoLinha(fr, k, hoje), 0), 0);
+  const tpl = TPL_DIA.slice(0, diaIdx(hoje) + 1).reduce((a,b)=>a+b,0) * TARIFA_TPL;
+  return meta * (1 + IMPOSTO) + tpl + PLANO.respostas.valor * (diaIdx(hoje) + 1) / DIAS_MES;
+}
 
 /* ================= COUNTDOWN ================= */
 function renderRail(){
@@ -810,6 +824,17 @@ function renderTermometro(){
   const restam = DIAS_MES - diaN + 1;
   $("t-falta").textContent = fmtK(Math.max(META - medido, 0));
   $("t-pace").textContent = "dia " + diaN + " de 31 · precisa de " + fmtK(Math.max(META - medido, 0) / Math.max(restam, 1)) + "/dia contando hoje";
+
+  // investimento: teto do plano (Meta + imposto + WhatsApp) × já gasto × ROAS do mês
+  const P0 = PLANO, T = C.T, inv = investimentoPrevisto(hoje);
+  $("t-inv-plano").textContent = fmtK(P0.teto);
+  $("t-inv-plano-s").textContent = "Meta " + fmtK(P0.meta) + " + imposto " + fmtK(P0.imposto) + " + WhatsApp (disparos e respostas) " + fmtK(P0.whatsapp);
+  $("t-inv-gasto").textContent = fmtR(T.custo);
+  $("t-inv-gasto-s").innerHTML = "Meta com imposto " + fmtR(T.metaImp) + " + WhatsApp " + fmtR(T.wa) + " · <b style=\"color:" + (T.custo > P0.teto ? "var(--red)" : "var(--ink-2)") + "\">" + (T.custo/P0.teto*100).toLocaleString("pt-BR",{maximumFractionDigits:1}) + "% do plano</b> · previsto até hoje " + fmtR(inv) + " · resta " + fmtR(P0.teto - T.custo);
+  const rz = T.custo >= ROAS_MIN_CUSTO ? T.roasFunil : null;
+  $("t-roas").textContent = fmtX(rz);
+  $("t-roas").style.color = rz == null ? "" : rz >= P0.roasAlvo[0] ? "var(--green)" : rz >= 1.8 ? "var(--amber)" : "var(--red)";
+  $("t-roas-s").textContent = "retorno do tráfego " + fmtR(T.ret + T.vend) + " ÷ investido (funil completo) · regra do painel " + fmtX(T.custo >= ROAS_MIN_CUSTO ? T.roasPainel : null) + " · alvo 2,6× a 3×";
 
   const track = $("thermo-track");
   $("th-fill").style.width = Math.min(medido/ESCALA*100, 100) + "%";
