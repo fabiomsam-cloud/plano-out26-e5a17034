@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>SOU · Plano Outubro 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --page:#f5f6f8; --surface:#ffffff; --surface-2:#f2f4f7;
+  --ink:#0f172a; --ink-2:#334155; --muted:#64748b;
+  --grid:#e5e8ee; --ring:rgba(15,23,42,.08);
+  --gold:#b7791f; --gold-soft:rgba(183,121,31,.12);
+  --blue:#2563eb; --green:#15803d; --red:#dc2626; --amber:#b45309;
+  --good:#15803d; --warn:#b45309; --critical:#dc2626;
+  --disp:"Bricolage Grotesque",sans-serif; --body:"IBM Plex Sans",system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scrollbar-color:#cbd5e1 var(--page)}
+body{background:var(--page);color:var(--ink);font-family:var(--body);font-size:14px;line-height:1.45;min-height:100vh;position:relative}
+body::before{content:"";position:absolute;left:0;right:0;top:0;height:520px;pointer-events:none;z-index:0;
+  background:radial-gradient(900px 380px at 85% -20%, rgba(183,121,31,.07), transparent 60%),
+             radial-gradient(700px 320px at -5% 0%, rgba(37,99,235,.05), transparent 55%)}
+.wrap{position:relative;z-index:1;max-width:1380px;margin:0 auto;padding:26px 30px 90px}
+
+header{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:16px}
+.brand h1{font-family:var(--disp);font-weight:800;font-size:31px;letter-spacing:-.6px;line-height:1.02}
+.brand h1 em{font-style:normal;color:var(--gold)}
+.brand .sub{color:var(--muted);font-size:12.5px;margin-top:7px;letter-spacing:.2px}
+.brand .sub b{color:var(--ink-2);font-weight:600}
+.stamp{text-align:right;font-size:12px;color:var(--muted)}
+.stamp .clock{font-family:var(--disp);font-weight:700;font-size:20px;color:var(--ink-2);letter-spacing:-.2px}
+.stamp .upd b{color:var(--ink-2)}
+
+.card{background:var(--surface);border:1px solid var(--ring);border-radius:14px;padding:20px 22px;position:relative;overflow:hidden;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.card h2{font-family:var(--disp);font-weight:700;font-size:17px;letter-spacing:-.2px}
+.card .hint{color:var(--muted);font-size:12px;margin-top:3px}
+.card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+.grid{display:grid;gap:12px;margin-bottom:12px}
+.g-two{grid-template-columns:1.35fr 1fr}
+.g-fun{grid-template-columns:1fr 1fr}
+@media(max-width:1080px){.g-two,.g-fun{grid-template-columns:1fr}}
+
+/* ---------- countdown rail ---------- */
+.rail{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 14px}
+.cd{background:var(--surface);border:1px solid var(--ring);border-radius:12px;padding:9px 14px;display:flex;align-items:baseline;gap:8px}
+.cd .n{font-family:var(--disp);font-weight:800;font-size:21px;color:var(--gold);letter-spacing:-.4px}
+.cd .n.now{color:var(--green)}
+.cd .l{font-size:11.5px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+.cd.fim{border-color:rgba(183,121,31,.45);background:linear-gradient(140deg,#fdf6e7 0%,var(--surface) 60%)}
+.cd.d1{border-color:rgba(220,38,38,.4)}
+.cd.d1 .n{color:var(--red)}
+.d1note{align-self:center;font-size:12px;color:var(--ink-2);background:rgba(220,38,38,.10);border:1px solid rgba(220,38,38,.3);
+  border-radius:10px;padding:8px 13px}
+.d1note b{color:#b42318}
+
+/* ---------- termômetro ---------- */
+.thermo-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:18px}
+@media(max-width:760px){.thermo-kpis{grid-template-columns:1fr 1fr}}
+.tk{background:var(--surface-2);border-radius:12px;padding:13px 15px}
+.tk .l{color:var(--muted);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em}
+.tk .v{font-family:var(--disp);font-weight:800;font-size:24px;margin-top:5px;letter-spacing:-.4px}
+.tk .s{font-size:11.5px;color:var(--muted);margin-top:3px}
+.tk.medido .v{color:var(--gold)}
+.tk.proj .v{color:var(--ink)}
+.badge-est{display:inline-block;background:rgba(37,99,235,.16);color:#1d4ed8;border:1px dashed rgba(37,99,235,.5);
+  font-size:10px;font-weight:700;letter-spacing:.06em;padding:2px 7px;border-radius:6px;vertical-align:2px}
+.badge-med{display:inline-block;background:rgba(183,121,31,.16);color:var(--gold);border:1px solid rgba(183,121,31,.5);
+  font-size:10px;font-weight:700;letter-spacing:.06em;padding:2px 7px;border-radius:6px;vertical-align:2px}
+.thermo{margin:6px 0 8px}
+.thermo .track{position:relative;height:34px;background:var(--surface-2);border-radius:10px;overflow:visible}
+.thermo .fill{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,#d9a53f,var(--gold));border-radius:10px 0 0 10px;min-width:3px}
+.thermo .fill-est{position:absolute;top:0;bottom:0;border-radius:0;opacity:.85;
+  background:repeating-linear-gradient(135deg, rgba(37,99,235,.42) 0 7px, rgba(37,99,235,.16) 7px 14px)}
+.thermo .mark{position:absolute;top:-7px;bottom:-7px;width:2px;background:var(--ink-2)}
+.thermo .mark.meta{background:var(--gold);width:3px;box-shadow:0 0 8px rgba(183,121,31,.5)}
+.thermo .mlab{position:absolute;top:-26px;transform:translateX(-50%);font-size:10.5px;color:var(--muted);font-weight:600;white-space:nowrap}
+.thermo .mlab b{color:var(--ink-2)}
+.thermo .mlab.meta b{color:var(--gold)}
+.thermo-scale{display:flex;justify-content:space-between;font-size:10.5px;color:var(--muted);margin-top:8px;font-variant-numeric:tabular-nums}
+.est-list{margin-top:14px;border-top:1px solid rgba(15,23,42,.06);padding-top:12px}
+.est-list .er{display:flex;justify-content:space-between;align-items:center;padding:6px 0;font-size:12.5px;color:var(--ink-2)}
+.est-list .er b{font-variant-numeric:tabular-nums;color:var(--ink)}
+.vday{display:flex;align-items:flex-end;gap:4px;height:74px;margin-top:14px}
+.vday .vb{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:4px;min-width:0}
+.vday .bar{width:100%;max-width:34px;background:var(--gold);border-radius:4px 4px 0 0;min-height:2px;opacity:.9}
+.vday .dl{font-size:9.5px;color:var(--muted);white-space:nowrap}
+.vday .dv{font-size:9.5px;color:var(--ink-2);font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* ---------- verba ---------- */
+.vrow{display:grid;grid-template-columns:150px 1fr 92px;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid rgba(15,23,42,.05)}
+.vrow:last-child{border-bottom:0}
+.vrow .name{font-size:12.5px;color:var(--ink-2);font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.vrow .name small{display:block;color:var(--muted);font-weight:400;font-size:10.5px}
+.vrow .track{height:15px;background:var(--surface-2);border-radius:5px;overflow:hidden;position:relative}
+.vrow .fill{height:100%;border-radius:5px;min-width:2px;background:var(--green)}
+.vrow .fill.over{background:var(--red)}
+.vrow .fill.near{background:var(--amber)}
+.vrow .cap{position:absolute;top:0;bottom:0;width:2px;background:rgba(15,23,42,.45)}
+.vrow .num{text-align:right;font-variant-numeric:tabular-nums;font-size:12px;color:var(--ink-2)}
+.vrow .num b{color:var(--ink);display:block;font-size:12.5px}
+.vrow.total{border-top:1px solid var(--ring);margin-top:4px;padding-top:12px}
+.vrow.total .name{color:var(--ink);font-size:13px}
+.vtabs{display:flex;background:var(--surface-2);border-radius:9px;padding:3px;gap:2px}
+.vtab{border:0;background:transparent;color:var(--ink-2);font-family:var(--body);font-size:12px;font-weight:600;
+  padding:5px 12px;border-radius:7px;cursor:pointer}
+.vtab.on{background:var(--gold);color:#161204}
+.note{font-size:11.5px;color:var(--muted);margin-top:12px}
+
+/* ---------- funil ---------- */
+.fcard h3{font-family:var(--disp);font-weight:700;font-size:15.5px;display:flex;align-items:center;gap:8px}
+.fcard .cpl{margin:10px 0 14px;display:flex;gap:10px;flex-wrap:wrap}
+.pill{background:var(--surface-2);border-radius:9px;padding:7px 12px;font-size:12px;color:var(--muted)}
+.pill b{display:block;font-family:var(--disp);font-size:17px;font-weight:700;color:var(--ink);margin-top:1px}
+.pill.ok b{color:var(--green)} .pill.mid b{color:var(--amber)} .pill.bad b{color:var(--red)}
+.frow{display:grid;grid-template-columns:86px 1fr 118px;gap:10px;align-items:center;padding:7px 0}
+.frow .fl{font-size:12px;color:var(--ink-2);font-weight:600}
+.frow .track{height:16px;background:var(--surface-2);border-radius:5px;overflow:hidden;position:relative}
+.frow .fill{height:100%;border-radius:5px;background:var(--blue);min-width:2px}
+.frow .goal{position:absolute;top:0;bottom:0;width:2px;background:rgba(15,23,42,.55)}
+.frow .fv{text-align:right;font-size:11.5px;font-variant-numeric:tabular-nums;color:var(--muted);white-space:nowrap}
+.frow .fv b{color:var(--ink);font-size:12.5px}
+.frow .fv .pc{font-weight:700}
+.pc.ok{color:var(--green)} .pc.bad{color:var(--red)}
+.soon{display:flex;flex-direction:column;gap:9px}
+.soon .si{display:flex;justify-content:space-between;gap:10px;background:var(--surface-2);border-radius:10px;padding:10px 13px;font-size:12.5px}
+.soon .si .sn{color:var(--ink);font-weight:600}
+.soon .si .ss{color:var(--muted);text-align:right}
+.tag-soon{display:inline-block;background:rgba(180,83,9,.14);color:#92400e;border:1px dashed rgba(180,83,9,.45);
+  font-size:10px;font-weight:700;letter-spacing:.05em;padding:2px 7px;border-radius:6px}
+
+/* ---------- resumo por tipo + insights ---------- */
+.rs-wrap{overflow-x:auto;margin-top:10px}
+.rs{width:100%;border-collapse:collapse;font-size:12.5px;min-width:640px}
+.rs th{text-align:right;color:var(--muted);font-size:10.5px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;padding:6px 8px;border-bottom:1px solid var(--grid);white-space:nowrap}
+.rs th:first-child,.rs td:first-child{text-align:left}
+.rs td{padding:8px;border-bottom:1px solid var(--grid);text-align:right;font-variant-numeric:tabular-nums;color:var(--ink-2);white-space:nowrap}
+.rs td:first-child{color:var(--ink);font-weight:600}
+.rs tr:last-child td{border-bottom:0}
+.rs td small{color:var(--muted);font-size:10.5px}
+.rs td.ok{color:var(--green);font-weight:600} .rs td.mid{color:var(--amber);font-weight:600} .rs td.bad{color:var(--red);font-weight:600}
+.dsp{border:1px solid var(--grid);border-radius:10px;padding:8px 12px;margin-top:8px;background:var(--surface)}
+.dsp summary{cursor:pointer;font-size:13px;color:var(--ink-2);list-style:none;display:flex;flex-wrap:wrap;gap:4px;align-items:baseline}
+.dsp summary::before{content:"▸";color:var(--muted);margin-right:4px} .dsp[open] summary::before{content:"▾"}
+.dsp summary b{color:var(--ink)} .dsp-f{font-weight:700;color:var(--ink);margin-right:6px;min-width:90px}
+.rs-h{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-top:18px}
+.rs-h h3{font-family:var(--disp);font-weight:700;font-size:14.5px;color:var(--ink)}
+.rs-h span{font-size:11px;color:var(--muted)}
+.ins{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:900px){.ins{grid-template-columns:1fr}}
+.in{display:flex;gap:11px;align-items:flex-start;padding:12px 14px;border-radius:12px;background:var(--surface-2);border-left:3px solid var(--grid)}
+.in.good{border-left-color:var(--green)} .in.warn{border-left-color:var(--amber)} .in.bad{border-left-color:var(--red)} .in.info{border-left-color:var(--blue)}
+.in .ic{font-size:18px;line-height:1.1;flex:none}
+.in .t{font-size:12.5px;color:var(--ink-2);line-height:1.45}
+.in .t b{color:var(--ink)}
+.in .k{display:block;font-size:10.5px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px}
+
+/* ---------- campanhas ---------- */
+.camp-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:1080px){.camp-grid{grid-template-columns:1fr}}
+.camp{background:var(--surface);border:1px solid var(--ring);border-radius:15px;padding:16px 18px;overflow:hidden}
+.camp .ch{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap}
+.camp .ch h3{font-family:var(--disp);font-weight:700;font-size:15px;letter-spacing:-.2px}
+.camp .ch .acct{font-size:10.5px;color:var(--muted);font-weight:600;letter-spacing:.05em;text-transform:uppercase}
+.camp .obj{font-size:11.5px;color:var(--muted);margin-top:4px}
+.camp .obj b{color:var(--ink-2);font-weight:600}
+.camp .pub{font-size:11px;color:var(--muted);margin-top:2px}
+.camp .kpis{display:flex;gap:8px;flex-wrap:wrap;margin:11px 0 4px}
+.camp .kp{background:var(--surface-2);border-radius:9px;padding:6px 11px;font-size:10.5px;color:var(--muted)}
+.camp .kp b{display:block;font-family:var(--disp);font-size:15px;font-weight:700;color:var(--ink);margin-top:1px}
+.camp .kp.ok b{color:var(--green)} .camp .kp.mid b{color:var(--amber)} .camp .kp.bad b{color:var(--red)}
+.dotst{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--green);margin-right:5px;vertical-align:1px}
+.dotst.off{background:var(--muted)}
+.tbl-wrap{overflow-x:auto;margin-top:10px}
+.camp table{width:100%;border-collapse:collapse;font-size:11.5px;min-width:520px}
+.camp th{text-align:right;color:var(--muted);font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;padding:4px 6px;border-bottom:1px solid var(--grid);white-space:nowrap}
+.camp th:first-child{text-align:left}
+.camp td{padding:6px;border-bottom:1px solid rgba(15,23,42,.04);text-align:right;font-variant-numeric:tabular-nums;color:var(--ink-2);white-space:nowrap}
+.camp td:first-child{text-align:left;color:var(--ink);max-width:190px;overflow:hidden;text-overflow:ellipsis}
+.camp tr:last-child td{border-bottom:0}
+.camp .adname small{display:block;color:var(--muted);font-size:9.5px}
+.bdg{font-size:10px;padding:1px 6px;border-radius:6px;font-weight:700;white-space:nowrap}
+.bdg.win{background:rgba(183,121,31,.16);color:var(--gold)}
+.bdg.lose{background:rgba(220,38,38,.15);color:#b42318}
+.bdg.col{background:rgba(15,23,42,.06);color:var(--muted);font-weight:600}
+.pos-funil{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-top:11px;padding-top:10px;border-top:1px solid rgba(15,23,42,.06);font-size:11.5px;color:var(--muted)}
+.pos-funil .stp{background:var(--surface-2);border-radius:8px;padding:5px 10px;color:var(--ink-2)}
+.pos-funil .stp b{color:var(--ink);font-variant-numeric:tabular-nums}
+.pos-funil .arr{color:var(--muted)}
+.abx{margin-top:11px;padding:10px 12px;border:1px dashed rgba(37,99,235,.45);background:rgba(37,99,235,.06);border-radius:10px}
+.abx .abt{font-size:10.5px;font-weight:700;color:#1d4ed8;letter-spacing:.05em;text-transform:uppercase}
+.abx .abrow{display:flex;gap:14px;flex-wrap:wrap;margin-top:7px;font-size:12px;color:var(--ink-2)}
+.abx .abrow b{color:var(--ink);font-variant-numeric:tabular-nums}
+.abx .abwarn{font-size:10.5px;color:var(--muted);margin-top:6px}
+.camp-aviso{margin-bottom:12px;padding:10px 14px;border-left:3px solid var(--amber);background:rgba(180,83,9,.07);border-radius:0 10px 10px 0;font-size:12px;color:var(--ink-2)}
+.camp-aviso b{color:#92400e}
+.camp-err{padding:14px;border-radius:12px;background:var(--surface-2);color:var(--muted);font-size:12.5px}
+
+/* ---------- calendário ---------- */
+.cal{display:flex;flex-direction:column}
+.ci{display:grid;grid-template-columns:96px 14px 1fr auto;gap:12px;align-items:flex-start;padding:9px 0;border-bottom:1px solid rgba(15,23,42,.05)}
+.ci:last-child{border-bottom:0}
+.ci .cd8{font-size:11.5px;color:var(--muted);font-weight:600;font-variant-numeric:tabular-nums;padding-top:2px;white-space:nowrap}
+.ci .dot{width:10px;height:10px;border-radius:50%;margin-top:5px;background:var(--muted);flex-shrink:0}
+.ci.feito .dot{background:var(--green)}
+.ci.hoje .dot{background:var(--gold);box-shadow:0 0 8px rgba(183,121,31,.6)}
+.ci.atrasado .dot{background:var(--red)}
+.ci .ct{font-size:13px;color:var(--ink);font-weight:500}
+.ci .ct small{display:block;color:var(--muted);font-size:11.5px;font-weight:400;margin-top:1px}
+.ci.feito .ct{color:var(--muted);text-decoration:line-through;text-decoration-color:rgba(15,23,42,.3);text-decoration-thickness:1px}
+.st{font-size:10px;font-weight:700;letter-spacing:.06em;padding:3px 8px;border-radius:6px;white-space:nowrap;margin-top:2px}
+.st.feito{background:rgba(21,128,61,.15);color:#15803d}
+.st.hoje{background:var(--gold-soft);color:var(--gold)}
+.st.pendente{background:rgba(15,23,42,.06);color:var(--muted)}
+.st.atrasado{background:rgba(220,38,38,.16);color:#b42318}
+
+/* ---------- alertas ---------- */
+.alert-row{display:flex;align-items:center;gap:14px;padding:11px 14px;border-left:3px solid var(--critical);
+  background:rgba(220,38,38,.07);border-radius:0 10px 10px 0;margin-bottom:8px;flex-wrap:wrap}
+.alert-row.warn{border-left-color:var(--amber);background:rgba(180,83,9,.07)}
+.alert-row .an{flex:1;min-width:200px;font-weight:600;color:var(--ink);font-size:13px}
+.alert-row .av{font-variant-numeric:tabular-nums;font-size:12.5px;color:var(--ink-2)}
+.all-ok{display:flex;align-items:center;gap:12px;padding:16px;border-radius:12px;
+  background:rgba(21,128,61,.09);border:1px solid rgba(21,128,61,.3);color:#15803d;font-weight:600;font-size:14px}
+.all-ok .ic{font-size:20px}
+
+.err{background:rgba(220,38,38,.1);border:1px solid rgba(220,38,38,.4);border-radius:12px;padding:16px;color:#b42318;font-size:13px;margin-bottom:12px;display:none}
+
+/* ---- abas de página + aba Tráfego ---- */
+.page-tabs{display:flex;gap:4px;background:var(--surface-2);border-radius:11px;padding:4px;margin-bottom:14px;width:max-content}
+.ptab{border:0;background:transparent;color:var(--ink-2);font-family:var(--body);font-size:13.5px;font-weight:700;
+  padding:8px 18px;border-radius:8px;cursor:pointer}
+.ptab.on{background:var(--ink);color:#fff}
+.ck-h{font-size:13px;color:var(--ink-2);margin:0 0 10px}
+.ck-list{display:flex;flex-direction:column;gap:6px}
+.ck{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border-radius:10px;background:var(--surface-2);
+  cursor:pointer;border:1px solid transparent}
+.ck:hover{border-color:rgba(15,23,42,.12)}
+.ck input{margin-top:2px;accent-color:var(--gold);width:16px;height:16px;flex:none;cursor:pointer}
+.ck .ct{font-size:12.5px;color:var(--ink);font-weight:600;line-height:1.35}
+.ck .cd{font-size:11px;color:var(--muted);margin-top:2px;line-height:1.4}
+.ck.done{opacity:.55}
+.ck.done .ct{text-decoration:line-through}
+.ck .when{font-size:10px;color:var(--gold);margin-top:2px}
+.rel-sec{padding:12px 14px;border-radius:11px;background:var(--surface-2);margin-bottom:10px;border-left:3px solid rgba(15,23,42,.14)}
+.rel-sec.ok{border-left-color:#1fa878}
+.rel-sec.warn{border-left-color:#d5a24e}
+.rel-sec h3{font-size:13.5px;margin:0 0 6px;color:var(--ink)}
+.rel-sec p{font-size:12.5px;color:var(--ink-2);margin:0 0 6px;line-height:1.55}
+.rel-sec p:last-child{margin-bottom:0}
+.rel-alert{color:#92400e}
+.muted{color:var(--muted)}
+footer{color:var(--muted);font-size:11.5px;margin-top:22px;text-align:center}
+@media(max-width:640px){
+  .wrap{padding:18px 14px 70px}
+  .brand h1{font-size:24px}
+  .vrow{grid-template-columns:110px 1fr 78px}
+  .frow{grid-template-columns:72px 1fr 104px}
+  .ci{grid-template-columns:78px 12px 1fr auto}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="brand">
+    <h1>PLANO OUTUBRO · <em>R$ 366 mil</em></h1>
+    <div class="sub">Tráfego perpétuo, três fases em paralelo e sem chamada para grupo · piso <b>R$ 341 mil</b> · meta cheia <b>R$ 399 mil</b> · teto de tráfego <b>R$ 90 mil</b> (Meta 64,5 + imposto 13,83% + WhatsApp 16,5) · ROAS alvo <b>2,6× a 3×</b> · sem a Black de alunos e sem a Matriz</div>
+  </div>
+  <div class="stamp">
+    <div class="clock" id="clock">—</div>
+    <div class="upd">último dado: <b id="upd">carregando…</b></div>
+    <div>fuso America/Manaus · atualiza a cada 5 min</div>
+  </div>
+</header>
+
+<div class="rail" id="rail"></div>
+
+<div class="err" id="err"></div>
+
+<!-- ============ ABAS ============ -->
+<div class="page-tabs">
+  <button class="ptab on" data-tab="painel">📊 Painel</button>
+  <button class="ptab" data-tab="gasto">💰 Gasto</button>
+</div>
+
+<div id="tab-painel">
+<!-- ============ 1 · TERMÔMETRO ============ -->
+<div class="card" style="margin-bottom:12px">
+  <div class="card-head">
+    <div><h2>Termômetro da meta</h2>
+      <div class="hint">Receita <b style="color:var(--ink-2)">líquida</b> de outubro: faturas pagas na Hubla (vendas novas + recorrência) <span class="badge-med">MEDIDO</span> · a Black de alunos (27–29/10) e a conta Matriz ficam fora</div>
+    </div>
+  </div>
+  <div class="thermo-kpis">
+    <div class="tk medido"><div class="l">Medido (Hubla)</div><div class="v" id="t-medido">—</div><div class="s" id="t-medido-s">faturas pagas no mês</div></div>
+    <div class="tk"><div class="l" id="t-acum-l">Meta acumulada</div><div class="v" id="t-acum">—</div><div class="s" id="t-acum-s">—</div></div>
+    <div class="tk proj"><div class="l">Projeção no ritmo atual</div><div class="v" id="t-proj">—</div><div class="s" id="t-proj-s">—</div></div>
+    <div class="tk"><div class="l">Falta p/ 366 mil</div><div class="v" id="t-falta">—</div><div class="s" id="t-pace">—</div></div>
+  </div>
+  <div class="thermo" style="margin-top:50px">
+    <div class="track" id="thermo-track">
+      <div class="fill" id="th-fill"></div>
+    </div>
+    <div class="thermo-scale"><span>R$ 0</span><span>R$ 105k</span><span>R$ 210k</span><span>R$ 315k</span><span>R$ 420k</span></div>
+  </div>
+  <div class="est-list" id="est-list"></div>
+  <div class="vday" id="vday"></div>
+  <div class="note">Barra dourada = medido (líquido, caixa por data de pagamento, soma única). Barras do dia: verde = bateu a meta diária do plano, dourado = abaixo, a de hoje é parcial; o risco escuro é a meta do dia (terça com PRF ao vivo pesa mais; fim de semana, feriado, eleição e Black pesam menos).</div>
+</div>
+
+<div class="grid g-two">
+  <!-- ============ 2 · VERBA DO DIA ============ -->
+  <div class="card">
+    <div class="card-head">
+      <div><h2>Verba do dia por frente</h2>
+        <div class="hint">Gasto Meta (série diária, sem imposto) contra a diária do plano · mídia constante de R$ 2.081/dia (R$ 2.368 com imposto)</div></div>
+      <div class="vtabs">
+        <button class="vtab" id="vt-ontem">Ontem</button>
+        <button class="vtab on" id="vt-hoje">Hoje</button>
+      </div>
+    </div>
+    <div id="verba"></div>
+    <div class="note" id="verba-note">Gasto de <b>hoje</b> é parcial — a sincronização com a Meta roda ao longo do dia.</div>
+  </div>
+
+  <!-- ============ 3 · ALERTAS ============ -->
+  <div class="card">
+    <div class="card-head">
+      <div><h2>Alertas</h2><div class="hint">Réguas do plano: meta acumulada, teto de verba, WhatsApp, custo por lead e funil do webinário</div></div>
+    </div>
+    <div id="alertas"></div>
+    <div class="note">Blindado só se julga depois de 7 dias rodando. PCs-AM e INSS são frentes em construção: medidas por leads, fichas e primeiras vendas, nunca cortadas pelo ROAS de um mês.</div>
+  </div>
+</div>
+
+<!-- ============ 4 · INSIGHTS ============ -->
+<div class="card" style="margin-bottom:12px">
+  <div class="card-head">
+    <div><h2>Leituras automáticas</h2>
+      <div class="hint">O que os números estão dizendo hoje — calculado ao vivo a partir da Meta, da plataforma do webinário, do WhatsApp da Anne e da Hubla</div></div>
+  </div>
+  <div class="ins" id="insights"></div>
+</div>
+
+<!-- ============ 5 · ROAS ============ -->
+<div class="card" style="margin-bottom:12px">
+  <div class="card-head">
+    <div><h2>ROAS · três leituras</h2>
+      <div class="hint">Do mês, por concurso (lado a lado, sem esconder os piores) e da venda direta no montante · custo = Meta × 1,1383 + WhatsApp (template R$ 0,35 · resposta R$ 0,05)</div></div>
+  </div>
+  <div id="roas"></div>
+</div>
+
+<!-- ============ 6 · WEBINÁRIOS ============ -->
+<div class="card" style="margin-bottom:12px">
+  <div class="card-head">
+    <div><h2>Fase 3 · link do webinário</h2>
+      <div class="hint">Leads da plataforma, presença, pitch, checkout e vendas com UTM do webinário · custo por lead = campanha [WEB] com imposto ÷ cadastros reais</div></div>
+  </div>
+  <div id="web-resumo"></div>
+</div>
+<div class="grid g-fun" id="funis"></div>
+
+<!-- ============ 7 · FASES 1 E 2 + INGRESSO + PLAY PASSEI ============ -->
+<div class="card" style="margin-bottom:12px">
+  <div class="card-head">
+    <div><h2>Fases 1 e 2 · atração e corredor</h2>
+      <div class="hint">Fase 1: gasto, cadastros nas páginas de aula e custo por cadastro · Fase 2: gasto, fichas de formação do mês e classe A/B/C · o tamanho dos públicos view-vídeo mora na Meta (exportar toda semana)</div></div>
+  </div>
+  <div id="fases"></div>
+</div>
+
+<!-- ============ 8 · CALENDÁRIO ============ -->
+<div class="card" style="margin-bottom:12px">
+  <div class="card-head">
+    <div><h2>Calendário do mês</h2><div class="hint">Marcos do plano de outubro — status automático pelo dia (Manaus)</div></div>
+  </div>
+  <div class="cal" id="cal"></div>
+</div>
+</div><!-- /tab-painel -->
+
+<!-- ============ ABA GASTO ============ -->
+<div id="tab-gasto" hidden>
+<div class="card" style="margin-bottom:12px">
+  <div class="card-head">
+    <div><h2>💰 Gasto — plano de outubro × executado</h2>
+      <div class="hint">Orçamento de R$ 90 mil por concurso × fase: o que o plano reservou para o mês, o que ele previa ter gasto até hoje, o executado (Meta + WhatsApp), a diferença e o que resta. Atualiza junto com o painel.</div>
+    </div>
+  </div>
+  <div id="gasto"><p class="muted">carregando…</p></div>
+</div>
+</div>
+
+<footer>PLANO OUTUBRO/2026 · Grupo SOU — Sou Concurseiro e Vou Passar · painel interno · receita sempre líquida</footer>
+</div>
+
+<script>
+/* ================= CONFIG ================= */
+const API  = "https://dqpxugdhlgafvddavzzp.supabase.co/functions/v1/dashboard-plano-out26";
+const ANON = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRxcHh1Z2RobGdhZnZkZGF2enpwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIxODQ1NTMsImV4cCI6MjA5Nzc2MDU1M30.nUhYPO3oLUZEXgQCDlRtL-Jawi0nr0l1Z7_z5ecEXvc";
+const K = new URLSearchParams(location.search).get("k") || "";
+
+const MES_INI = "2026-10-01", MES_FIM = "2026-10-31", DIAS_MES = 31;
+const PISO = 341000, CHEIA = 399400, ESCALA = 420000;
+const IMPOSTO = 0.1383;                               // imposto sobre a mídia Meta
+const TARIFA_TPL = 0.35, TARIFA_UTIL = 0.05, TARIFA_RESP = 0.05;   // WhatsApp desde 01/10
+// Templates aprovados na Meta na categoria UTILIDADE (R$ 0,05). Hoje nenhum: tudo sai como marketing.
+const TEMPLATES_UTILIDADE = [];
+
+// Meta diária de venda (líquida) — meta realista de R$ 366 mil pelos pesos do plano
+// (dia útil 1,0 · primeiros dias 0,9 · terça com PRF ao vivo 1,15 · sábado 0,75 · domingo 0,65 · feriado 0,5 · eleição 0,45 · Black 0,8)
+const META_DIA = [12165,12165,10137,6082,13516,15544,13516,13516,13516,10137,8786,6758,15544,13516,13516,13516,10137,8786,13516,15544,13516,13516,13516,10137,6082,13516,10813,10813,10813,13516,10137];
+const META = META_DIA.reduce((a,b)=>a+b,0);          // 366.295
+// Templates previstos por dia (45.300 no mês) — o disparo segue o calendário, a mídia é constante
+const TPL_DIA = [7200,1400,500,0,1100,8100,1100,1800,1100,500,500,1000,3100,1800,1100,1100,500,500,1100,2200,1100,1100,1100,500,0,1800,700,700,700,1400,500];
+
+// Frentes do plano (ordem da tabela de orçamento)
+const ORDEM = ["TJAM","SEDUC_AM","SEMSA","POLICIAS","INSS","PRF","MANAUSPREV","PLAYPASSEI"];
+const NOME = { TJAM:"TJ-AM", SEDUC_AM:"SEDUC-AM", SEMSA:"SEMSA-AM", POLICIAS:"Elite PCs-AM", INSS:"INSS", PRF:"PRF por ingresso",
+               MANAUSPREV:"ManausPrev", PLAYPASSEI:"Play Passei + CEI", OUTRAS:"Outras / sem concurso" };
+const FASES = ["F1","F2","F3","BLIND"];
+const FASE_NOME = { F1:"F1 view-vídeo", F2:"F2 corredor", F3:"F3 link do webinário", BLIND:"Blindado" };
+const MADURAS = ["TJAM","SEDUC_AM","SEMSA","PRF","MANAUSPREV"];   // alvo de ROAS 2,6× a 3× vale só para estas
+
+// Orçamento de R$ 90 mil — mídia Meta por frente × fase (mês), templates do WhatsApp e retornos do plano
+// ini = data em que a linha começa a rodar (previsto até hoje é linear do início da linha até 31/10)
+const PLANO = {
+  versao: "Plano de Tráfego · Outubro/26",
+  frentes: {
+    TJAM:       { F1:3000, F2:3000, F3:6500, BLIND:5500, tpl:12300, ret:75100, vend:14000, otim:118700, blindRet:37100 },
+    SEDUC_AM:   { F1:2000, F2:2000, F3:4000, BLIND:1000, tpl:5500,  ret:24500, vend:6500,  otim:47000,  blindRet:4000 },
+    SEMSA:      { F1:1000, F2:1000, F3:2500, BLIND:2000, tpl:5900,  ret:17500, vend:2500,  otim:33000,  blindRet:8100, ini:{ F3:"2026-10-08" }, obs:{ F3:"webinário estreia 08/10" } },
+    POLICIAS:   { F1:2000, F2:2000, F3:5000, BLIND:4000, tpl:8000,  ret:32000, vend:8000,  otim:70000,  blindRet:9100, obs:{ F3:"funil no ar até 06/10 · frente em construção" } },
+    INSS:       { F1:1000, F2:500,  F3:2500, BLIND:0,    tpl:4000,  ret:7000,  vend:0,     otim:14000,  blindRet:0,    ini:{ F3:"2026-10-14" }, obs:{ F3:"webinário estreia 14/10 · frente em construção" } },
+    PRF:        { F1:1000, F2:0,    F3:4500, BLIND:1500, tpl:6200,  ret:21800, vend:4700,  otim:38000,  blindRet:4300, obs:{ F3:"ingresso R$ 19,90 · ao vivo às terças 06, 13 e 20", BLIND:"venda direta do Elite PRF" } },
+    MANAUSPREV: { F1:0,    F2:0,    F3:2700, BLIND:1300, tpl:2600,  ret:16000, vend:2000,  otim:24000,  blindRet:4400 },
+    PLAYPASSEI: { F1:0,    F2:0,    F3:3000, BLIND:0,    tpl:500,   ret:2500,  vend:0,     otim:5000,   blindRet:0,    ini:{ F3:"2026-10-09" }, obs:{ F3:"VSL + CEI desde 09/10 · R$ 130/dia · teste da Black (medido por CPA, não por ROAS)" } },
+  },
+  upsell: { ret:8000, otim:20000 },                 // Pós em todos os Elites (menos INSS) + graduação PCs — sem mídia
+  respostas: { n:15000, valor:750 },                // Anne IA dentro da janela (transversal)
+  blindRecAnne: 450,                                // WhatsApp da recuperação da Anne em 10 min
+  tpl: { n:45000, valor:15750 },
+  meta: 64500, imposto: 8920, whatsapp: 16500, reserva: 80, teto: 90000,
+  roasAlvo: [2.6, 3.0], roasPainel: 2.27, roasFunil: 2.69, roasBlind: 3.8,
+  linhas: { trafego:242100, rec:105000, comercial:22300, cs:10000, outros:20000 },   // meta cheia de R$ 399,4 mil
+};
+
+// Faixa do custo por lead do webinário (Meta [WEB] com imposto ÷ cadastros reais): setembro rodou a R$ 9–11
+const CPL_FAIXA = { ok: 11, stop: 16 };
+// Metas encadeadas do webinário: sala/inscritos · pitch/sala · checkout/pitch · compra/checkout
+const METAS_FUNIL = { sala:.75, pitch:.40, checkout:.30, compra:.10 };
+
+// Calendário-mestre do plano (edite feito:true quando um marco fechar)
+const CAL = [
+  {de:"2026-10-01", ate:"2026-10-01", t:"Início · ondas 0 (WhatsApp para ex-alunos e ativos de 2026) e 1 (e-mail)", d:"webinários automatizados, blindado e ingresso PRF desde as 6h", feito:false},
+  {de:"2026-10-01", ate:"2026-10-03", t:"Recuperar os 49 compradores de Polícias que não pagaram (R$ 47,9 mil)", d:"vendedor e Anne IA oferecem o PIX parcelado (12× R$ 99,70) · o dinheiro mais barato do mês", feito:false},
+  {de:"2026-10-01", ate:"2026-10-03", t:"Anne IA de Polícias: parar de responder \"não temos edital\"", d:"argumento novo: prepare-se até a prova + concursos de segurança anunciados para 2027 · nunca prometer data de edital", feito:false},
+  {de:"2026-10-01", ate:"2026-10-05", t:"Nome de toda campanha e disparo com fase + concurso", d:"[F1] [F2] [WEB] [BLIND] [BLACK] + [TJAM] [SEDUCAM] [SEMSA] [POLICIAS] [INSS] [PRF] [MANAUSPREV] [PLAYPASSEI] · o painel aceita também o padrão antigo", feito:false},
+  {de:"2026-10-04", ate:"2026-10-04", t:"1º turno das eleições", d:"sem campanha nova; diária mantida", feito:false},
+  {de:"2026-10-05", ate:"2026-10-05", t:"CEI atualizado", d:"pré-requisito do funil do Play Passei em 09/10", feito:false},
+  {de:"2026-10-01", ate:"2026-10-06", t:"Funil do PCs-AM no ar", d:"webinário automatizado da live de 28/09 + blindado com PIX parcelado no checkout + agente de webinário da Anne", feito:false},
+  {de:"2026-10-01", ate:"2026-10-06", t:"Ligar a recuperação de carrinho abandonado da Anne IA (10 min)", d:"setembro teve 431 carrinhos abandonados e só 3 follow-ups · o blindado foi orçado contando com ela", feito:false},
+  {de:"2026-10-06", ate:"2026-10-06", t:"PRF AO VIVO · 1ª terça", d:"para quem comprou ingresso (replay 72 h) · onda 2 no WhatsApp: quem abriu ou clicou no e-mail", feito:false},
+  {de:"2026-10-08", ate:"2026-10-08", t:"SEMSA · webinário estreia", d:"fechamento final de setembro · onda 3 por e-mail (bases adjacentes)", feito:false},
+  {de:"2026-10-09", ate:"2026-10-09", t:"Play Passei + CEI no ar", d:"funil VSL com o CEI de upsell · teste do produto da Black · metas: CPA ≤ R$ 300 e CEI em ≥ 12% dos compradores", feito:false},
+  {de:"2026-10-12", ate:"2026-10-12", t:"Feriado", d:"convites do dia seguinte", feito:false},
+  {de:"2026-10-13", ate:"2026-10-13", t:"PRF AO VIVO · 2ª terça", d:"replay 72 h · convites do webinário depois do feriado", feito:false},
+  {de:"2026-10-14", ate:"2026-10-14", t:"INSS · webinário estreia", d:"base de 25 mil interessados parada desde julho", feito:false},
+  {de:"2026-10-20", ate:"2026-10-20", t:"PRF AO VIVO · última terça do mês", d:"replay 72 h · ingresso comprado depois de 20/10 assiste em 03/11", feito:false},
+  {de:"2026-10-25", ate:"2026-10-25", t:"2º turno das eleições", d:"sem campanha nova; diária mantida", feito:false},
+  {de:"2026-10-26", ate:"2026-10-26", t:"Cobrança da recorrência", d:"candidata a template de utilidade (R$ 0,05)", feito:false},
+  {de:"2026-10-27", ate:"2026-10-29", t:"Black de alunos (painel próprio)", d:"sem PRF ao vivo no dia 27 · o perpétuo mantém a diária das 3 fases · Black fica fora da meta e do teto", feito:false},
+  {de:"2026-10-30", ate:"2026-10-30", t:"Anne nos carrinhos abandonados da semana", d:"ingressos PRF vendidos desde 21/10 convidados para 03/11", feito:false},
+  {de:"2026-10-31", ate:"2026-10-31", t:"Fecha o mês · paga a fatura de setembro", d:"último dia do plano", feito:false},
+];
+const MARCOS = [
+  {d:"2026-10-06", l:"PRF ao vivo"}, {d:"2026-10-08", l:"SEMSA estreia"}, {d:"2026-10-09", l:"Play Passei + CEI"},
+  {d:"2026-10-13", l:"PRF ao vivo"}, {d:"2026-10-14", l:"INSS estreia"}, {d:"2026-10-20", l:"PRF ao vivo"},
+  {d:"2026-10-27", l:"Black de alunos", black:true},
+];
+
+/* ================= HELPERS ================= */
+const $ = id => document.getElementById(id);
+const fmtR = v => (v<0?"−":"") + "R$ " + Math.round(Math.abs(v)).toLocaleString("pt-BR");
+const fmtR2 = v => "R$ " + v.toLocaleString("pt-BR",{minimumFractionDigits:2,maximumFractionDigits:2});
+const fmtK = v => Math.abs(v)>=1000 ? (v<0?"−":"") + "R$ " + (Math.abs(v)/1000).toLocaleString("pt-BR",{maximumFractionDigits:Math.abs(v)<100000?1:0}) + "k" : fmtR(v);
+const fmtN = v => Math.round(v||0).toLocaleString("pt-BR");
+const pct = (a,b) => b>0 ? a/b : null;
+const fmtPct = p => p==null ? "—" : Math.round(p*100) + "%";
+const fmtX = v => v==null || !isFinite(v) ? "—" : v.toLocaleString("pt-BR",{minimumFractionDigits:2,maximumFractionDigits:2}) + "×";
+const fmtCusto = v => v==null ? "—" : "R$ " + v.toLocaleString("pt-BR",{minimumFractionDigits:2,maximumFractionDigits:2});
+// relógio do plano: depois de 31/10 o painel congela sozinho no último dia do mês
+const FIM_PLANO_MS = Date.parse("2026-11-01T04:00:00.000Z") - 1000;
+const agoraPlano = () => Math.min(Date.now(), FIM_PLANO_MS);
+const hojeManaus = () => { const d = new Date(agoraPlano() - 4*3600e3).toISOString().slice(0,10); return d < MES_INI ? MES_INI : d; };
+const diaMais = (iso, n) => new Date(Date.parse(iso) + n * 86400e3).toISOString().slice(0, 10);
+const ontemManaus = () => diaMais(hojeManaus(), -1);
+const diasEntre = (a, b) => Math.max(0, Math.round((Date.parse(b) - Date.parse(a)) / 86400e3) + 1);
+const ddmm = iso => iso.slice(8,10) + "/" + iso.slice(5,7);
+const diaIdx = iso => Number(iso.slice(8,10)) - 1;
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const soma = o => Object.values(o||{}).reduce((a,v)=>a+v,0);
+
+function relogio(){
+  $("clock").textContent = new Date().toLocaleString("pt-BR",
+    {timeZone:"America/Manaus", day:"2-digit", month:"2-digit", hour:"2-digit", minute:"2-digit"}).replace(",", " ·");
+}
+relogio(); setInterval(relogio, 30000);
+
+/* ================= CLASSIFICADORES ================= */
+// Concurso pelo texto (nome de campanha Meta, agente da Anne, campanha de disparo, código do webinário, slug de página).
+// Ordem importa: Play Passei antes de PRF (campanhas [PP][...][PRF]).
+function frenteDe(txt){
+  const n = (txt||"").toUpperCase();
+  if (/PLAY[\s_-]?PASSEI|\[PP\]|SPOTI?FABIO|\bCEI\b|SOU[\s_-]?QUEST/.test(n)) return "PLAYPASSEI";
+  if (/MANAUS[\s_-]?PREV/.test(n)) return "MANAUSPREV";
+  if (/TJ[\s_-]?AM|TRIBUNA/.test(n)) return "TJAM";
+  if (/SEDUC[\s_-]?AM/.test(n)) return "SEDUC_AM";
+  if (/SEDUC[\s_-]?PA/.test(n)) return "OUTRAS";            // encerrado em setembro
+  if (/SEMSA/.test(n)) return "SEMSA";
+  if (/INSS/.test(n)) return "INSS";
+  if (/PRF/.test(n)) return "PRF";
+  if (/POLICIAS|POLÍCIAS|POLICIA[\s_-]?CIVIL|POLÍCIA CIVIL|\bPCS?[\s_-]?AM|\bPM[\s_-]?AM|PCIVIL|\[PCS?\]/.test(n)) return "POLICIAS";
+  return "OUTRAS";
+}
+// Fase da campanha Meta pelo nome — aceita o padrão novo ([F1] [F2] [WEB] [ING] [VSL] [BLIND] [BLACK])
+// e o antigo ([PLANO][FASE1]… [PLANO][BLINDADO]… [WEB][TJAM][CADASTRO]…).
+function faseDe(nome, conta){
+  const n = (nome||"").toUpperCase();
+  if (/\bBLACK\b/.test(n)) return "BLACK";
+  if (/\[BLIND\]|BLINDADO|PERP[EÉ]TUO/.test(n)) return "BLIND";
+  if (/\[F1\]|FASE ?1|ATRA[CÇ][AÃ]O|AUDI[EÊ]NCIA/.test(n)) return "F1";
+  if (/\[F2\]|FASE ?2|CORREDOR/.test(n)) return "F2";
+  if (/\[WEB\]|\[ING\]|\[VSL\]|\[F3\]|FASE ?3|WEBIN|WEBNARIO|CADASTRO|INGRESSO|\bVSL\b/.test(n)) return "F3";
+  if (/SPOTFABIO/.test((conta||"").toUpperCase()) || frenteDe(n) === "PLAYPASSEI") return "F3";
+  return "OUTRAS";
+}
+function classMeta(r){
+  const conta = (r.ad_account_name||"").toUpperCase();
+  let fr = frenteDe(r.campaign_name);
+  if (fr === "OUTRAS" && /SPOTFABIO/.test(conta)) fr = "PLAYPASSEI";
+  return { fr, fase: faseDe(r.campaign_name, conta) };
+}
+// Concurso da venda pelo produto; Pós e graduação herdam o concurso do Elite comprado nos 7 dias anteriores
+function concursoProduto(p){
+  p = (p||"").toUpperCase();
+  if (/PLAY ?PASSEI|SOU QUEST|SPOTI?FABIO|\bCEI\b|CLUBE DE ESTUDO/.test(p)) return "PLAYPASSEI";
+  if (/MANAUS ?PREV/.test(p)) return "MANAUSPREV";
+  if (/TRIBUNAL DE JUSTI|TJ[\s-]?AM/.test(p)) return "TJAM";
+  if (/SEDUC[\s-]?AM/.test(p)) return "SEDUC_AM";
+  if (/SEMSA/.test(p)) return "SEMSA";
+  if (/INSS/.test(p)) return "INSS";
+  if (/PRF/.test(p)) return "PRF";
+  if (/POL[IÍ]CIAS DO AMAZONAS|POL[IÍ]CIA CIVIL (DO )?AMAZONAS|\bPC[\s-]?AM/.test(p)) return "POLICIAS";
+  return "OUTRAS";
+}
+const ehPos = p => /P[ÓO]S[\s-]|P[ÓO]S GRADUA|GRADUA[ÇC][ÃA]O/.test((p||"").toUpperCase());
+function concursoVenda(v){ return ehPos(v.p) ? (v.e7 ? concursoProduto(v.e7) : "OUTRAS") : concursoProduto(v.p); }
+// Black de alunos (27–29/10): fora da meta e do teto (painel próprio) — venda NOVA a partir de 27/10 com "BLACK" na
+// oferta, no produto, na campanha ou no cupom. Parcela de Black antiga (recorrência) continua contando como recorrência.
+const BLACK_INI = "2026-10-27";
+const ehBlack = v => !v.rec && v.d >= BLACK_INI && /\bBLACK\b/i.test([v.o, v.p, v.uc, v.cp].join(" "));
+// Canal da venda pela UTM do checkout
+// tráfego (regra do painel) = web · anne · site · ingresso · pp · upsell   |   vendedor · grupo · cs · outros
+function canalVenda(v){
+  const p = (v.p||"").toUpperCase(), s = (v.us||"").toLowerCase().trim(), c = (v.uc||"").toLowerCase(), m = (v.um||"").toLowerCase();
+  if (v.rec) return "rec";
+  if (/RENOVA/.test(p) || /renova/.test(c)) return "cs";
+  if (/PROFISS[AÃ]O PRF/.test(p)) return "ingresso";
+  if (concursoProduto(p) === "PLAYPASSEI") return (s === "fb" || s === "ig" || /pago|cpc/.test(m) || /\[pp\]|\[vsl\]/.test(c)) ? "pp" : "outros";
+  if (/^upsell/.test(s) || (ehPos(p) && v.e7)) return "upsell";
+  if (/webin|webnario/.test(s + " " + c)) return "web";
+  if (/anne/.test(s)) return "anne";
+  if (/customer-success/.test(s)) return "cs";
+  if (/inside-sales|ataque|unnichat|vendedor/.test(s) || s === "whatsapp") return "vendedor";
+  if (/grupo/.test(s)) return "grupo";
+  if (s === "site" || s === "pagina-vendas" || s === "fb" || s === "ig" || s === "facebook") return "site";
+  return "outros";
+}
+const CANAIS_TRAFEGO = ["web","anne","site","ingresso","pp","upsell"];
+const ROAS_MIN_CUSTO = 100;   // abaixo disso o ROAS do concurso não é leitura (aparece "—")
+const tocado = v => v.a || v.w || v.pa;     // comprador falou com a Anne ou foi lead de webinário/página nos 30 dias antes
+// Concurso da mensagem do WhatsApp: disparo pelo NOME da campanha; o resto pelo agente
+function frenteMsg(w, nomes){
+  const txt = w.origem === "disparo" ? ((nomes[w.campaign_id]||"") + " " + (w.agent_slug||"")) : ((w.agent_slug||"") + " " + (w.template||""));
+  if (/\bP[OÓ]S\b|^POS_|\bPOS_/i.test(txt)) return "OUTRAS";
+  return frenteDe(txt.replace(/_/g, " "));
+}
+
+/* ================= PLANO: previsto até hoje ================= */
+function planoLinha(fr, fase){ const f = PLANO.frentes[fr]; return f ? (f[fase]||0) : 0; }
+function iniLinha(fr, fase){ const f = PLANO.frentes[fr]; return (f && f.ini && f.ini[fase]) || MES_INI; }
+// linear do início da linha até 31/10, contando o dia de hoje inteiro
+function previstoLinha(fr, fase, hoje){
+  const mes = planoLinha(fr, fase); if (!mes) return 0;
+  const ini = iniLinha(fr, fase); if (hoje < ini) return 0;
+  return mes * diasEntre(ini, hoje) / diasEntre(ini, MES_FIM);
+}
+function diariaLinha(fr, fase, dia){
+  const mes = planoLinha(fr, fase); if (!mes) return 0;
+  const ini = iniLinha(fr, fase); if (dia < ini) return 0;
+  return mes / diasEntre(ini, MES_FIM);
+}
+const diariaFrente = (fr, dia) => FASES.reduce((a,f) => a + diariaLinha(fr, f, dia), 0);
+
+/* ================= COUNTDOWN ================= */
+function renderRail(){
+  const hoje = hojeManaus();
+  const dias = d => Math.round((Date.parse(d) - Date.parse(hoje)) / 86400e3);
+  let h = `<div class="cd fim"><span class="n">${Math.max(dias(MES_FIM),0)}</span><span class="l">dias até 31/10</span></div>`;
+  let n = 0;
+  for (const m of MARCOS){
+    const k = dias(m.d); if (k < 0 || n >= 5) continue; n++;
+    h += `<div class="cd${m.black?" d1":""}"><span class="n${k===0?" now":""}">${k===0?"HOJE":k}</span><span class="l">${esc(m.l)} · ${ddmm(m.d)}</span></div>`;
+  }
+  h += `<div class="d1note" style="background:var(--gold-soft);border-color:rgba(183,121,31,.35)"><b style="color:var(--gold)">Meta que assumimos: a do meio.</b> R$ 366 mil não depende de nenhum funil novo dar certo.</div>`;
+  $("rail").innerHTML = h;
+}
+renderRail();
+
+/* ================= CALENDÁRIO ================= */
+function renderCal(){
+  const hoje = hojeManaus();
+  $("cal").innerHTML = CAL.map(m => {
+    let st = "pendente";
+    if (m.feito) st = "feito";
+    else if (hoje >= m.de && hoje <= m.ate) st = "hoje";
+    else if (m.ate < hoje) st = "atrasado";
+    const per = m.de === m.ate ? ddmm(m.de) : ddmm(m.de) + "–" + ddmm(m.ate);
+    const lab = {feito:"FEITO", hoje:"HOJE", pendente:"PENDENTE", atrasado:"CONFERIR"}[st];
+    return `<div class="ci ${st}"><div class="cd8">${per}</div><div class="dot"></div>
+      <div class="ct">${esc(m.t)}${m.d?`<small>${esc(m.d)}</small>`:""}</div>
+      <span class="st ${st}">${lab}</span></div>`;
+  }).join("");
+}
+renderCal();
+
+/* ================= ABAS ================= */
+document.querySelectorAll(".page-tabs .ptab").forEach(b => b.onclick = () => {
+  document.querySelectorAll(".page-tabs .ptab").forEach(x => x.classList.toggle("on", x === b));
+  $("tab-painel").hidden = b.dataset.tab !== "painel";
+  $("tab-gasto").hidden = b.dataset.tab !== "gasto";
+});
+
+/* ================= DADOS ================= */
+let RAW = null, C = null, verbaDia = "hoje";
+
+async function load(){
+  try{
+    const r = await fetch(API + "?k=" + encodeURIComponent(K), {headers:{Authorization:"Bearer "+ANON, apikey:ANON}});
+    const d = await r.json();
+    if (d.error) throw new Error(d.error);
+    RAW = d; C = calcular(d);
+    $("err").style.display = "none";
+    $("upd").textContent = new Date(d.generated_at).toLocaleString("pt-BR",
+      {timeZone:"America/Manaus", day:"2-digit", month:"2-digit", hour:"2-digit", minute:"2-digit"});
+    renderAll();
+  }catch(e){
+    $("err").style.display = "block";
+    $("err").textContent = "Falha ao carregar os dados: " + e.message + (K ? "" : " — confira o token ?k= na URL.");
+  }
+}
+
+// Tudo que o painel mostra sai deste cálculo único (vendas, gasto, WhatsApp, funis) — as telas só formatam
+function calcular(d){
+  const add = (o, k, v) => { o[k] = (o[k]||0) + v; };
+  const add2 = (o, a, b, v) => { (o[a] ??= {}); o[a][b] = (o[a][b]||0) + v; };
+
+  // ---- Meta: fase × frente, por dia, e campanhas sem etiqueta
+  const meta = {}, metaDia = {}, black = { meta:0 }, semEtiqueta = {};
+  for (const r of (d.meta_spend||[])){
+    const v = Number(r.spend||0); if (!v) continue;
+    const k = classMeta(r);
+    if (k.fase === "BLACK"){ black.meta += v; continue; }
+    add2(meta, k.fase, k.fr, v);
+    add2(metaDia, r.period_start, k.fr, v);
+    if (k.fase === "OUTRAS" || k.fr === "OUTRAS") add(semEtiqueta, r.campaign_name, v);
+  }
+  const g = (fase, fr) => (meta[fase]?.[fr]) || 0;
+  const metaFrente = fr => Object.keys(meta).reduce((a,f) => a + g(f, fr), 0);
+  const metaTotal = Object.keys(meta).reduce((a,f) => a + soma(meta[f]), 0);
+
+  // ---- WhatsApp: templates × 0,35 (utilidade 0,05) · respostas × 0,05
+  const nomes = {}; for (const c of (d.disparos||[])) nomes[c.campaign_id] = c.name;
+  const wa = { tpl:{}, tplN:{}, resp:{}, respN:{}, tplDia:{}, origem:{}, tplTotal:0, tplTotalN:0, respTotal:0, respTotalN:0 };
+  for (const w of (d.whatsapp||[])){
+    const fr = frenteMsg(w, nomes), n = Number(w.n||0);
+    if (w.tipo === "template"){
+      const v = n * (TEMPLATES_UTILIDADE.includes(w.template) ? TARIFA_UTIL : TARIFA_TPL);
+      add(wa.tpl, fr, v); add(wa.tplN, fr, n); add(wa.tplDia, w.dia, n); add(wa.origem, w.origem||"outro", n);
+      wa.tplTotal += v; wa.tplTotalN += n;
+    } else {
+      const v = n * TARIFA_RESP;
+      add(wa.resp, fr, v); add(wa.respN, fr, n); wa.respTotal += v; wa.respTotalN += n;
+    }
+  }
+  wa.total = wa.tplTotal + wa.respTotal;
+  const waFrente = fr => (wa.tpl[fr]||0) + (wa.resp[fr]||0);
+
+  // ---- vendas: medido, linhas da meta, canal × concurso
+  const vendasDia = {}, porFr = {}, linhas = { trafego:0, rec:0, comercial:0, cs:0, outros:0 }, bl = { n:0, net:0 };
+  let medido = 0, nFat = 0, novas = 0;
+  const cel = (fr, canal) => ((porFr[fr] ??= {})[canal] ??= { n:0, net:0 });
+  for (const v of (d.vendas||[])){
+    if (ehBlack(v)){ bl.n++; bl.net += v.net; continue; }
+    medido += v.net; nFat++;
+    const dia = (vendasDia[v.d] ??= { net:0, n:0 }); dia.net += v.net; dia.n++;
+    const canal = canalVenda(v), fr = concursoVenda(v);
+    if (canal !== "rec") novas += v.net;
+    let chave = canal;
+    if (canal === "vendedor") chave = tocado(v) ? "vendFunil" : "vendFora";
+    const c = cel(fr, chave); c.n++; c.net += v.net;
+    if (canal === "rec") linhas.rec += v.net;
+    else if (CANAIS_TRAFEGO.includes(canal) || chave === "vendFunil") linhas.trafego += v.net;
+    else if (chave === "vendFora" || canal === "grupo") linhas.comercial += v.net;
+    else if (canal === "cs") linhas.cs += v.net;
+    else linhas.outros += v.net;
+  }
+  const net = (fr, canal) => porFr[fr]?.[canal]?.net || 0, qtd = (fr, canal) => porFr[fr]?.[canal]?.n || 0;
+  const retPainel = fr => CANAIS_TRAFEGO.reduce((a,c) => a + net(fr, c), 0);
+  const frentesTodas = [...ORDEM, "OUTRAS"];
+
+  // ---- ROAS por concurso
+  const roas = frentesTodas.map(fr => {
+    const m = metaFrente(fr), custo = m * (1 + IMPOSTO) + waFrente(fr), ret = retPainel(fr), vend = net(fr, "vendFunil");
+    return { fr, meta: m, metaImp: m * (1 + IMPOSTO), wa: waFrente(fr), custo, ret, vend,
+      web: net(fr,"web"), anne: net(fr,"anne"), site: net(fr,"site"), outrosTraf: net(fr,"ingresso") + net(fr,"pp") + net(fr,"upsell"),
+      nTraf: CANAIS_TRAFEGO.reduce((a,c) => a + qtd(fr, c), 0), nVend: qtd(fr, "vendFunil"),
+      roasPainel: custo >= ROAS_MIN_CUSTO ? ret / custo : null, roasFunil: custo >= ROAS_MIN_CUSTO ? (ret + vend) / custo : null };
+  });
+  const T = roas.reduce((a,r) => ({ meta:a.meta+r.meta, metaImp:a.metaImp+r.metaImp, wa:a.wa+r.wa, custo:a.custo+r.custo, ret:a.ret+r.ret, vend:a.vend+r.vend }), { meta:0, metaImp:0, wa:0, custo:0, ret:0, vend:0 });
+  T.roasPainel = T.custo > 0 ? T.ret / T.custo : null; T.roasFunil = T.custo > 0 ? (T.ret + T.vend) / T.custo : null;
+
+  // ---- venda direta (blindado) por concurso
+  const forms = {}; for (const [dia, slug, camp, n] of (Array.isArray(d.forms_blindado) ? d.forms_blindado : [])) add(forms, frenteDe(String(slug).replace(/-/g," ")), n);
+  const blind = frentesTodas.map(fr => { const m = g("BLIND", fr), custo = m * (1 + IMPOSTO), r = net(fr, "site"), n = qtd(fr, "site");
+    return { fr, meta:m, custo, forms: forms[fr]||0, n, ret:r, cac: n > 0 ? custo / n : null, roas: custo > 0 ? r / custo : null }; });
+  const BT = blind.reduce((a,b) => ({ meta:a.meta+b.meta, custo:a.custo+b.custo, forms:a.forms+b.forms, n:a.n+b.n, ret:a.ret+b.ret }), { meta:0, custo:0, forms:0, n:0, ret:0 });
+  BT.roas = BT.custo > 0 ? BT.ret / BT.custo : null;
+
+  // ---- webinário por frente
+  const web = {};
+  for (const [code, dias] of Object.entries(d.funil_dia||{})){
+    const fr = frenteDe(code.replace(/_/g," ")); const t = (web[fr] ??= { inscritos:0, sala:0, pitch:0, checkout:0, dias:{}, codes:[] });
+    t.codes.push(code);
+    for (const [dia, x] of Object.entries(dias)){ for (const k of ["inscritos","sala","pitch","checkout"]) t[k] += x[k]; add(t.dias, dia, x.inscritos); }
+  }
+  for (const fr of Object.keys(web)){ const t = web[fr]; t.compras = qtd(fr,"web"); t.comprasNet = net(fr,"web"); t.spend = g("F3", fr); t.custo = t.spend * (1 + IMPOSTO);
+    t.cpl = t.inscritos > 0 ? t.custo / t.inscritos : null; }
+
+  // ---- páginas (Fase 1) e fichas (Fase 2)
+  const pag = {}, pagQ = {}; for (const [dia, slug, conc, us, uc, q, n] of (Array.isArray(d.paginas) ? d.paginas : [])){ const fr = frenteDe((conc||"") + " " + String(slug).replace(/-/g," ")); add(pag, fr, n); if (q === "1") add(pagQ, fr, n); }
+  const fichas = {}; for (const [dia, frente, classe, n] of (Array.isArray(d.fichas) ? d.fichas : [])){ const fr = frenteDe(frente); add2(fichas, fr, classe, n); }
+  const anneEv = {}; for (const [dia, tipo, agente, n] of (Array.isArray(d.anne_eventos) ? d.anne_eventos : [])) add(anneEv, tipo, n);
+
+  return { meta, metaDia, g, metaFrente, metaTotal, black, blackVendas: bl, semEtiqueta, wa, waFrente,
+    vendasDia, medido, nFat, novas, linhas, porFr, net, qtd, roas, T, blind, BT, web, pag, pagQ, fichas, anneEv, frentesTodas };
+}
+
+/* ================= RENDER ================= */
+function renderAll(){
+  renderRail(); renderCal();
+  renderTermometro();
+  renderVerba();
+  const seguro = (id, f) => { try { f(); } catch(e){ $(id).innerHTML = `<p class="muted">bloco indisponível: ${esc(e.message)}</p>`; console.error(e); } };
+  seguro("insights", renderInsights);
+  seguro("roas", renderRoas);
+  seguro("web-resumo", renderWeb);
+  seguro("fases", renderFases);
+  seguro("gasto", renderGasto);
+  seguro("alertas", renderAlertas);
+}
+
+// meta acumulada do plano de 01/10 até o dia (inclusive)
+const metaAte = dia => dia < MES_INI ? 0 : META_DIA.slice(0, diaIdx(dia) + 1).reduce((a,b)=>a+b,0);
+function ritmo(){
+  const hoje = hojeManaus(), fechado = hoje > MES_INI ? ontemManaus() : null;
+  const medFech = fechado ? Object.entries(C.vendasDia).filter(([d]) => d <= fechado).reduce((a,[,x]) => a + x.net, 0) : 0;
+  const metaFech = fechado ? metaAte(fechado) : 0;
+  const diasFech = fechado ? diaIdx(fechado) + 1 : 0;
+  const mesFechado = Date.now() > FIM_PLANO_MS;
+  return { hoje, fechado, medFech, metaFech, diasFech, mesFechado, razao: metaFech > 0 ? medFech / metaFech : null,
+    proj: diasFech >= 3 && metaFech > 0 ? medFech / metaFech * META : null };
+}
+
+/* ---- 1 · termômetro ---- */
+function renderTermometro(){
+  const R = ritmo(), hoje = R.hoje, diaN = diaIdx(hoje) + 1;
+  const rec = C.linhas.rec, medido = C.medido;
+  $("t-medido").textContent = fmtK(medido);
+  $("t-medido-s").textContent = "novas " + fmtK(medido - rec) + " + recorrência " + fmtK(rec) + " · " + Math.round(medido/META*100) + "% da meta";
+  if (R.fechado){
+    const dif = R.medFech - R.metaFech;
+    $("t-acum-l").textContent = "Meta acumulada até " + ddmm(R.fechado);
+    $("t-acum").textContent = fmtK(R.metaFech);
+    $("t-acum-s").innerHTML = "medido até lá " + fmtK(R.medFech) + " · <b style=\"color:" + (dif >= 0 ? "var(--green)" : "var(--red)") + "\">" + (dif >= 0 ? "+" : "") + fmtK(dif) + "</b>";
+  } else {
+    $("t-acum-l").textContent = "Meta de hoje (" + ddmm(hoje) + ")";
+    $("t-acum").textContent = fmtK(META_DIA[0]);
+    $("t-acum-s").textContent = "1º dia do mês — o acumulado começa a contar amanhã";
+  }
+  $("t-proj").textContent = R.proj == null ? "—" : fmtK(R.proj);
+  $("t-proj-s").textContent = R.proj == null ? "precisa de 3 dias fechados para projetar"
+    : (R.proj >= CHEIA ? "acima da meta cheia (R$ 399 mil)" : R.proj >= META ? "acima da meta · cheia é R$ 399 mil" : R.proj >= PISO ? "entre o piso (R$ 341 mil) e a meta" : "abaixo do piso de R$ 341 mil");
+  const restam = DIAS_MES - diaN + 1;
+  $("t-falta").textContent = fmtK(Math.max(META - medido, 0));
+  $("t-pace").textContent = "dia " + diaN + " de 31 · precisa de " + fmtK(Math.max(META - medido, 0) / Math.max(restam, 1)) + "/dia contando hoje";
+
+  const track = $("thermo-track");
+  $("th-fill").style.width = Math.min(medido/ESCALA*100, 100) + "%";
+  track.querySelectorAll(".mark,.mlab").forEach(el=>el.remove());
+  // os três níveis ficam perto um do outro (81%, 87% e 95% da régua): rótulos em duas linhas para não se sobreporem
+  for (const [v,l,cls,pos] of [[PISO,"341k · piso","","left:"+(PISO/ESCALA*100)+"%;transform:translateX(-100%);padding-right:6px"],
+                               [META,"366k · META","meta","left:"+(META/ESCALA*100)+"%;top:-42px"],
+                               [CHEIA,"399k · cheia","","left:auto;right:0;transform:none"]]){
+    const x = v/ESCALA*100;
+    track.insertAdjacentHTML("beforeend",
+      `<div class="mark ${cls}" style="left:${x}%"></div><div class="mlab ${cls}" style="${pos}"><b>${l.split(" · ")[0]}</b> ${l.split(" · ")[1]}</div>`);
+  }
+
+  // o que compõe a meta cheia de R$ 399,4 mil × medido
+  const L = C.linhas, P = PLANO.linhas;
+  const row = (nome, med, meta, obs) => `<div class="er"><span>${nome} <span style="color:var(--muted)">· ${obs}</span></span><b>${fmtR(med)} <span style="color:var(--muted);font-weight:400">de ${fmtR(meta)} (${fmtPct(pct(med, meta))})</span></b></div>`;
+  let h = row("Entrega do tráfego (funil completo)", L.trafego, P.trafego, "webinário, Anne, blindado, PRF, upsell + vendedor com lead que a Anne trabalhou")
+    + row("Recorrência", L.rec, P.rec, "parcelas 2ª+ de vendas anteriores")
+    + row("Comercial fora do funil", L.comercial, P.comercial, "vendedor sem passagem pela Anne ou webinário + grupo")
+    + row("CS", L.cs, P.cs, "renovação, upgrade e retenção")
+    + row("Outros", L.outros, P.outros, "Diamante, Play Passei orgânico, site sem campanha");
+  if (C.blackVendas.n) h += `<div class="er"><span>Black de alunos <span class="badge-est">FORA DA META</span> <span style="color:var(--muted)">· ${C.blackVendas.n} faturas · painel próprio</span></span><b>${fmtR(C.blackVendas.net)}</b></div>`;
+  $("est-list").innerHTML = h;
+
+  // barras do dia, com a meta diária do plano
+  const vd = C.vendasDia, dias = [];
+  for (let d = MES_INI; d <= hoje; d = diaMais(d, 1)) dias.push(d);
+  const max = Math.max(...dias.map(d => Math.max(vd[d]?.net||0, META_DIA[diaIdx(d)])), 1);
+  $("vday").style.height = "92px";
+  $("vday").innerHTML = dias.map(d => { const v = vd[d]?.net||0, m = META_DIA[diaIdx(d)], ok = v >= m, parcial = d === hoje && !R.mesFechado;
+    return `<div class="vb" title="${ddmm(d)} · medido ${fmtR(v)} · meta ${fmtR(m)}"><span class="dv">${fmtK(v)}</span>
+      <div style="position:relative;width:100%;max-width:34px;height:${Math.max(Math.max(v,m)/max*56,3)}px;display:flex;align-items:flex-end">
+        <div class="bar" style="height:${v/Math.max(v,m)*100}%;width:100%;max-width:none;background:${ok?"var(--green)":"var(--gold)"};opacity:${parcial?.55:.9}"></div>
+        <div style="position:absolute;left:-2px;right:-2px;bottom:${m/Math.max(v,m)*100}%;border-top:2px solid rgba(15,23,42,.6)"></div></div>
+      <span class="dl">${ddmm(d)}</span></div>`; }).join("");
+}
+
+/* ---- 2 · verba do dia ---- */
+function renderVerba(){
+  const dia = verbaDia === "hoje" ? hojeManaus() : ontemManaus();
+  const por = C.metaDia[dia] || {};
+  const total = soma(por);
+  const linhas = C.frentesTodas.map(fr => ({ fr, g: por[fr]||0, diaria: fr === "OUTRAS" ? 0 : diariaFrente(fr, dia) }));
+  const maxScale = Math.max(...linhas.map(l => Math.max(l.diaria, l.g)), 1) * 1.15;
+  let h = "";
+  for (const l of linhas){
+    if (l.diaria === 0 && l.g < 0.5) continue;
+    const r = l.diaria > 0 ? l.g / l.diaria : 9;
+    const cls = r > 1.25 ? "over" : r > 1.05 ? "near" : "";
+    h += `<div class="vrow"><div class="name"${l.fr==="OUTRAS"?' style="color:var(--muted)"':""}>${esc(NOME[l.fr])}<small>${l.diaria>0?"diária R$ "+fmtN(l.diaria):"fora das frentes do plano"}</small></div>
+      <div class="track"><div class="fill ${cls}" style="width:${Math.min(l.g/maxScale*100,100)}%${l.fr==="OUTRAS"?";background:var(--muted)":""}"></div>
+        ${l.diaria>0?`<div class="cap" style="left:${Math.min(l.diaria/maxScale*100,100)}%"></div>`:""}</div>
+      <div class="num"><b>${fmtR2(l.g)}</b>${l.diaria > 0 ? Math.round(r*100)+"% da diária" : ""}</div></div>`;
+  }
+  const teto = ORDEM.reduce((a,fr) => a + diariaFrente(fr, dia), 0), rT = teto > 0 ? total / teto : 0;
+  h += `<div class="vrow total"><div class="name">TOTAL vs diária do plano<small>R$ ${fmtN(teto)}/dia neste dia · com imposto ${fmtR(total*(1+IMPOSTO))}</small></div>
+    <div class="track"><div class="fill ${rT>1.15?"over":rT>1?"near":""}" style="width:${Math.min(rT*100,100)}%"></div></div>
+    <div class="num"><b>${fmtR2(total)}</b>${Math.round(rT*100)}% da diária</div></div>`;
+  $("verba").innerHTML = dia < MES_INI ? `<p class="muted">o plano começa em 01/10 — ainda não há "ontem".</p>` : h;
+  $("verba-note").innerHTML = verbaDia === "hoje"
+    ? "Gasto de <b>hoje</b> é parcial — a sincronização com a Meta roda ao longo do dia."
+    : "Fechamento de <b>ontem</b> (" + ddmm(dia) + ") — dia calendário de Manaus.";
+}
+$("vt-hoje").onclick = ()=>{ verbaDia="hoje"; $("vt-hoje").classList.add("on"); $("vt-ontem").classList.remove("on"); if (C) renderVerba(); };
+$("vt-ontem").onclick = ()=>{ verbaDia="ontem"; $("vt-ontem").classList.add("on"); $("vt-hoje").classList.remove("on"); if (C) renderVerba(); };
+
+/* ---- 5 · ROAS ---- */
+function renderRoas(){
+  const P = PLANO, T = C.T, BT = C.BT;
+  const cls = (v, ok, stop) => v == null ? "" : v >= ok ? "ok" : v >= stop ? "mid" : "bad";
+  const pill = (l, v, s, c) => `<div class="pill ${c||""}" style="flex:1;min-width:190px">${l}<b>${v}</b><span style="font-size:11px">${s}</span></div>`;
+  let h = `<div class="cpl" style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:6px">
+    ${pill("ROAS do mês · regra do painel", fmtX(T.roasPainel), `${fmtR(T.ret)} sobre ${fmtR(T.custo)} · plano ${fmtX(P.roasPainel)}`, cls(T.roasPainel, P.roasPainel, 1.5))}
+    ${pill("ROAS do mês · funil completo", fmtX(T.roasFunil), `+ ${fmtR(T.vend)} do vendedor com lead trabalhado · plano ${fmtX(P.roasFunil)} · alvo 2,6× a 3×`, cls(T.roasFunil, P.roasAlvo[0], 1.8))}
+    ${pill("Venda direta no montante", fmtX(BT.roas), `${fmtR(BT.ret)} sobre ${fmtR(BT.custo)} · plano ${fmtX(P.roasBlind)} · setembro 5,49×`, cls(BT.roas, P.roasBlind, 2))}
+  </div>`;
+
+  // por concurso
+  h += `<div class="rs-h"><h3>ROAS por concurso</h3><span>retorno do painel = vendas novas com UTM de webinário, Anne, site (blindado), ingresso/Play Passei pago e upsell da Pós · "+ vendedor" = venda do vendedor cujo comprador falou com a Anne ou foi lead de webinário ou página nos 30 dias antes</span></div>
+    <div class="rs-wrap"><table class="rs"><tr><th>Concurso</th><th>Meta + 13,83%</th><th>WhatsApp</th><th>Custo total</th><th>Webinário</th><th>Anne</th><th>Site</th><th>Retorno painel</th><th>+ vendedor</th><th>ROAS painel</th><th>ROAS funil</th><th>ROAS do plano</th></tr>`;
+  for (const r of C.roas){
+    if (r.custo < 0.5 && r.ret + r.vend < 0.5) continue;
+    const f = P.frentes[r.fr], planoCusto = f ? (f.F1+f.F2+f.F3+f.BLIND)*(1+IMPOSTO) + f.tpl*TARIFA_TPL : null;
+    const roasPlano = f ? (f.ret + f.vend) / planoCusto : null;
+    const madura = MADURAS.includes(r.fr);
+    const extra = r.outrosTraf > 0 ? ` <small>(+ ${fmtR(r.outrosTraf)} ${r.fr==="PRF"?"ingresso/upsell":r.fr==="PLAYPASSEI"?"VSL":"upsell"})</small>` : "";
+    h += `<tr><td>${esc(NOME[r.fr])}${!madura && f ? `<br><small>${r.fr==="PLAYPASSEI"?"teste da Black · medir por CPA":"em construção · medir por leads e fichas"}</small>` : ""}</td>
+      <td>${fmtR(r.metaImp)}</td><td>${fmtR(r.wa)}</td><td><b>${fmtR(r.custo)}</b></td>
+      <td>${fmtR(r.web)}</td><td>${fmtR(r.anne)}</td><td>${fmtR(r.site)}</td>
+      <td><b>${fmtR(r.ret)}</b>${extra}</td><td>${r.vend>0?fmtR(r.vend)+` <small>(${r.nVend})</small>`:"—"}</td>
+      <td class="${madura?cls(r.roasPainel, 2.2, 1.2):""}">${fmtX(r.roasPainel)}</td>
+      <td class="${madura?cls(r.roasFunil, P.roasAlvo[0], 1.5):""}"><b>${fmtX(r.roasFunil)}</b></td><td>${fmtX(roasPlano)}</td></tr>`;
+  }
+  h += `<tr><td><b>Total</b></td><td><b>${fmtR(T.metaImp)}</b></td><td><b>${fmtR(T.wa)}</b></td><td><b>${fmtR(T.custo)}</b></td><td colspan="3"></td>
+    <td><b>${fmtR(T.ret)}</b></td><td><b>${fmtR(T.vend)}</b></td><td class="${cls(T.roasPainel, P.roasPainel, 1.5)}"><b>${fmtX(T.roasPainel)}</b></td>
+    <td class="${cls(T.roasFunil, P.roasAlvo[0], 1.8)}"><b>${fmtX(T.roasFunil)}</b></td><td><b>${fmtX(P.roasFunil)}</b></td></tr></table></div>`;
+
+  // venda direta no montante
+  h += `<div class="rs-h"><h3>Venda direta (blindado) no montante</h3><span>campanhas [BLIND] por concurso levando à página/checkout blindado · retorno = vendas novas com UTM do site · regra da casa: julgar só depois de 7 dias rodando</span></div>
+    <div class="rs-wrap"><table class="rs"><tr><th>Concurso</th><th>Meta [BLIND]</th><th>Custo c/ imposto</th><th>Formulários</th><th>Vendas no site</th><th>Retorno</th><th>CAC</th><th>ROAS</th><th>ROAS do plano</th></tr>`;
+  for (const b of C.blind){
+    if (b.meta < 0.5 && b.n === 0 && b.forms === 0) continue;
+    const f = P.frentes[b.fr], rp = f && f.BLIND > 0 ? f.blindRet / (f.BLIND*(1+IMPOSTO)) : null;
+    h += `<tr><td>${esc(NOME[b.fr])}</td><td>${fmtR(b.meta)}</td><td>${fmtR(b.custo)}</td><td>${fmtN(b.forms)}</td><td>${b.n}</td><td><b>${fmtR(b.ret)}</b></td>
+      <td>${b.cac==null?"—":fmtR(b.cac)}</td><td class="${cls(b.roas, 3, 1.5)}"><b>${fmtX(b.roas)}</b></td><td>${fmtX(rp)}</td></tr>`;
+  }
+  h += `<tr><td><b>Montante</b></td><td><b>${fmtR(BT.meta)}</b></td><td><b>${fmtR(BT.custo)}</b></td><td><b>${fmtN(BT.forms)}</b></td><td><b>${BT.n}</b></td><td><b>${fmtR(BT.ret)}</b></td>
+    <td>${BT.n>0?fmtR(BT.custo/BT.n):"—"}</td><td class="${cls(BT.roas, P.roasBlind, 2)}"><b>${fmtX(BT.roas)}</b></td><td><b>${fmtX(P.roasBlind)}</b></td></tr></table></div>
+    <div class="note">Quem chega ao checkout e não paga deveria receber a Anne IA em 10 minutos (marco até 06/10). Checkouts enviados pela Anne no mês: <b>${fmtN(C.anneEv.checkout_enviado||0)}</b> · vendas confirmadas por ela: <b>${fmtN(C.anneEv.venda_confirmada||0)}</b> · escaladas ao humano: <b>${fmtN(C.anneEv.escalado_humano||0)}</b>. Venda sem link do vendedor (utm) some do ROAS — em Polícias 100% das vendas de setembro vieram por link próprio.</div>`;
+  $("roas").innerHTML = h;
+}
+
+/* ---- 6 · webinários ---- */
+function renderWeb(){
+  const fx = (v, ok, stop, inv) => v==null ? "" : inv ? (v >= ok ? "ok" : v >= stop ? "mid" : "bad") : (v <= ok ? "ok" : v <= stop ? "mid" : "bad");
+  const frs = ORDEM.filter(fr => C.web[fr] || (C.g("F3", fr) > 0 && !["PRF","PLAYPASSEI"].includes(fr)));
+  let h = `<div class="rs-wrap"><table class="rs"><tr><th>Frente</th><th>Meta [WEB]</th><th>Leads</th><th>Custo por lead</th><th>Assistiram</th><th>Pitch/sala</th><th>Checkout/pitch</th><th>Compra/checkout</th><th>Vendas</th><th>Receita por lead</th><th>CAC</th><th>ROAS</th></tr>`;
+  for (const fr of frs){
+    const t = C.web[fr] || { inscritos:0, sala:0, pitch:0, checkout:0, compras:C.qtd(fr,"web"), comprasNet:C.net(fr,"web"), spend:C.g("F3",fr), custo:C.g("F3",fr)*(1+IMPOSTO), cpl:null };
+    const sala = pct(t.sala,t.inscritos), pitch = pct(t.pitch,t.sala), ck = pct(t.checkout,t.pitch), cp = pct(t.compras,t.checkout);
+    h += `<tr><td>${esc(NOME[fr])}</td><td>${fmtR(t.spend)}</td><td>${fmtN(t.inscritos)}</td><td class="${t.inscritos >= 30 ? fx(t.cpl, CPL_FAIXA.ok, CPL_FAIXA.stop) : ""}">${fmtCusto(t.cpl)}${t.inscritos > 0 && t.inscritos < 30 ? " <small>amostra pequena</small>" : ""}</td>
+      <td class="${fx(sala,.75,.6,true)}">${fmtPct(sala)}</td><td class="${fx(pitch,.40,.30,true)}">${fmtPct(pitch)}</td><td class="${fx(ck,.30,.2,true)}">${fmtPct(ck)}</td><td>${fmtPct(cp)}</td>
+      <td>${t.compras} <small>· ${fmtK(t.comprasNet)}</small></td><td>${t.inscritos>0?fmtCusto(t.comprasNet/t.inscritos):"—"}</td>
+      <td>${t.compras>0?fmtR(t.custo/t.compras):"—"}</td><td>${t.custo>0?fmtX(t.comprasNet/t.custo):"—"}</td></tr>`;
+  }
+  h += `</table></div>`;
+  const pend = [["SEMSA","SEMSA-AM estreia em 08/10"],["INSS","INSS estreia em 14/10"],["POLICIAS","PCs-AM: webinário automatizado da live de 28/09 até 06/10"]].filter(([fr]) => !C.web[fr]);
+  if (pend.length) h += `<div class="note">Ainda sem leads na plataforma: ${pend.map(p => p[1]).join(" · ")}. Sem webinário a frente não entra na Fase 3.</div>`;
+  h += `<div class="note">Setembro (referência do plano): TJ-AM 1.382 leads · R$ 27 de receita por lead · custo R$ 9,30 | SEDUC-AM 685 · R$ 28 · R$ 10,70 | ManausPrev 335 · R$ 30 · R$ 9,40. PRF não tem webinário diário: entra por ingresso (abaixo).</div>`;
+  $("web-resumo").innerHTML = frs.length ? h : `<p class="muted">sem leads de webinário no mês ainda</p>`;
+
+  // cartões de funil
+  $("funis").innerHTML = ORDEM.filter(fr => C.web[fr]).map(fr => funilCard(fr)).join("");
+}
+function funilCard(fr){
+  const t = C.web[fr];
+  const cplCls = t.cpl==null || t.inscritos < 30 ? "" : t.cpl <= CPL_FAIXA.ok ? "ok" : t.cpl <= CPL_FAIXA.stop ? "mid" : "bad";
+  const etapas = [["Inscritos", t.inscritos, null, null], ["Sala", t.sala, t.inscritos, METAS_FUNIL.sala], ["Pitch", t.pitch, t.sala, METAS_FUNIL.pitch],
+    ["Checkout", t.checkout, t.pitch, METAS_FUNIL.checkout], ["Compras", t.compras, t.checkout, METAS_FUNIL.compra]];
+  const maxE = Math.max(t.inscritos, 1);
+  let rows = "";
+  for (const [l, v, den, meta] of etapas){
+    const p = den==null ? null : pct(v, den);
+    const okCls = p==null||meta==null ? "" : (p >= meta ? "ok" : "bad");
+    const goalX = meta!=null && den ? Math.min(meta*den/maxE*100, 100) : null;
+    rows += `<div class="frow"><div class="fl">${l}</div>
+      <div class="track"><div class="fill" style="width:${Math.max(v/maxE*100, v>0?2:0)}%"></div>
+        ${goalX!=null?`<div class="goal" style="left:${goalX}%"></div>`:""}</div>
+      <div class="fv"><b>${fmtN(v)}</b> ${p!=null?`· <span class="pc ${okCls}">${fmtPct(p)}</span>${meta!=null?` <span style="color:var(--muted)">/ ${Math.round(meta*100)}%</span>`:""}`:""}</div></div>`;
+  }
+  return `<div class="card fcard"><h3>${esc(NOME[fr])} · Webinário</h3>
+    <div class="cpl">
+      <div class="pill ${cplCls}">Custo por lead<b>${fmtCusto(t.cpl)}</b></div>
+      <div class="pill">Investido [WEB] c/ imposto<b>${fmtR(t.custo)}</b></div>
+      <div class="pill">Receita webinário<b>${fmtK(t.comprasNet)}</b></div>
+    </div>
+    ${rows}
+    <div class="note">Mês até agora · % encadeado etapa a etapa contra a régua (sala 75% · pitch 40% · checkout 30% · compra 10%). "Compras" = faturas pagas com UTM do webinário.</div></div>`;
+}
+
+/* ---- 7 · fases 1 e 2 + ingresso + Play Passei ---- */
+function renderFases(){
+  let h = `<div class="rs-wrap"><table class="rs"><tr><th>Frente</th><th>Gasto F1</th><th>Cadastros nas páginas</th><th>Custo por cadastro</th><th>Gasto F2</th><th>Fichas no mês</th><th>Classe A · B · C</th></tr>`;
+  for (const fr of ORDEM){
+    const f1 = C.g("F1", fr), f2 = C.g("F2", fr), cad = C.pag[fr]||0, fi = C.fichas[fr]||{}, nf = soma(fi);
+    if (!planoLinha(fr,"F1") && !planoLinha(fr,"F2") && f1+f2 < 0.5 && !cad && !nf) continue;
+    h += `<tr><td>${esc(NOME[fr])}</td><td>${fmtR(f1)}</td><td>${fmtN(cad)}${C.pagQ[fr]?` <small>· ${fmtN(C.pagQ[fr])} qualificados</small>`:""}</td>
+      <td>${cad>=5 && f1>0 ? fmtCusto(f1*(1+IMPOSTO)/cad) : "—"}</td><td>${fmtR(f2)}</td><td>${fmtN(nf)}</td><td>${nf?`${fi.A||0} · ${fi.B||0} · ${fi.C||0}`:"—"}</td></tr>`;
+  }
+  h += `</table></div><div class="note">Passa da Fase 1 para a 2 quem assistiu 75% (o Meta monta o público) ou se cadastrou numa página de aula; da 2 para a 3 quem consumiu 75% da trilha ou fez ficha e missões. Custo por cadastro = Fase 1 com imposto ÷ todos os cadastros das páginas da frente (inclui orgânico).</div>`;
+
+  // PRF por ingresso + Play Passei
+  const ing = C.qtd("PRF","ingresso"), gI = C.g("F3","PRF") * (1+IMPOSTO);
+  const elite = ["web","anne","site","vendFunil","vendFora","grupo","outros","cs"].reduce((a,c) => ({ n:a.n + C.qtd("PRF",c), net:a.net + C.net("PRF",c) }), { n:0, net:0 });
+  const pp = C.qtd("PLAYPASSEI","pp"), ppNet = C.net("PLAYPASSEI","pp"), gP = C.g("F3","PLAYPASSEI") * (1+IMPOSTO);
+  const ppOrg = C.qtd("PLAYPASSEI","outros");
+  h += `<div class="rs-h"><h3>PRF por ingresso · Play Passei + CEI</h3><span>PRF: ingresso R$ 19,90 → ao vivo de terça + replay 72 h → Elite R$ 1.597 · Play Passei: teste do produto da Black a partir de 09/10</span></div>
+    <div class="rs-wrap"><table class="rs"><tr><th>Frente</th><th>Mídia c/ imposto</th><th>Vendas de entrada</th><th>CPA</th><th>Meta do plano</th><th>Subida</th></tr>
+    <tr><td>PRF · ingresso</td><td>${fmtR(gI)}</td><td>${ing} ingressos <small>· ${fmtR(C.net("PRF","ingresso"))}</small></td><td>${ing>0?fmtCusto(gI/ing):"—"}</td><td><small>setembro: CPA R$ 53,69 · 11% subiram ao Elite</small></td>
+      <td>${elite.n} Elite PRF <small>· ${fmtR(elite.net)} (todas as vias)</small></td></tr>
+    <tr><td>Play Passei · VSL</td><td>${fmtR(gP)}</td><td>${pp} vendas pagas <small>· ${fmtR(ppNet)}</small></td><td class="${pp>0?(gP/pp<=300?"ok":"bad"):""}">${pp>0?fmtCusto(gP/pp):"—"}</td><td><small>CPA ≤ R$ 300 · CEI em ≥ 12% dos compradores</small></td>
+      <td><small>${ppOrg} vendas orgânicas fora da conta</small></td></tr></table></div>`;
+  $("fases").innerHTML = h;
+}
+
+/* ================= ABA GASTO ================= */
+function renderGasto(){
+  const hoje = hojeManaus(), H = ddmm(hoje), P = PLANO;
+  const pc = (e,p) => p>0 ? Math.round(e/p*100)+"%" : (e>0 ? "—" : "0%");
+  const clsCons = (e,p) => p>0 && e>p ? "bad" : "";
+  const clsDif = d => d > 1 ? "mid" : d < -1 ? "ok" : "";
+  const sDif = v => Math.abs(v) < 1 ? "R$ 0" : (v>0?"+":"−") + "R$ " + fmtN(Math.abs(v));
+  let html = `<div class="note" style="margin:0 0 6px"><b>Como ler:</b> Plano = orçamento de outubro por concurso × fase (mídia Meta sem imposto) · <b>Previsto até ${H}</b> = linear do início de cada linha até 31/10, contando hoje (SEMSA [WEB] começa 08/10, Play Passei 09/10, INSS [WEB] 14/10) · Executado = Meta pelos insights diários desde 01/10 (${H} parcial), classificado pelo nome da campanha no padrão novo ou no antigo · Diferença = executado − previsto (+ = acima do plano) · Resta = plano − executado (negativo = linha estourada) · Consumido = executado ÷ plano.</div>`;
+
+  // 0 · visão por frente (a tabela do orçamento)
+  html += `<div class="rs-h"><h3>0 · Orçamento por concurso (R$ 90 mil)</h3><span>executado sobre o plano de cada célula · custo total = Meta + 13,83% + WhatsApp do concurso</span></div>
+    <div class="rs-wrap"><table class="rs"><tr><th>Frente</th><th>F1 view-vídeo</th><th>F2 corredor</th><th>F3 link do webinário</th><th>Blindado</th><th>Meta</th><th>Meta + 13,83%</th><th>WhatsApp</th><th>Custo total</th><th>Plano</th><th>Consumido</th></tr>`;
+  const cel = (e, p) => `<td class="${clsCons(e,p)}">${fmtR(e)}<br><small>de ${p?fmtN(p):"—"}</small></td>`;
+  let tE = 0, tP = 0;
+  for (const fr of C.frentesTodas){
+    const f = P.frentes[fr], m = C.metaFrente(fr), waF = C.waFrente(fr);
+    if (!f && m < 0.5 && waF < 0.5) continue;
+    const pm = f ? f.F1+f.F2+f.F3+f.BLIND : 0, pTot = f ? pm*(1+IMPOSTO) + f.tpl*TARIFA_TPL : 0, eTot = m*(1+IMPOSTO) + waF;
+    tE += eTot; tP += pTot;
+    const fora = Object.keys(C.meta).filter(k => !FASES.includes(k)).reduce((a,k) => a + C.g(k, fr), 0);
+    html += `<tr><td>${esc(NOME[fr])}${fora>0.5?`<br><small>${fmtR(fora)} sem fase no nome</small>`:""}</td>${FASES.map(k => cel(C.g(k, fr), f ? f[k] : 0)).join("")}
+      <td><b>${fmtR(m)}</b><br><small>de ${fmtN(pm)}</small></td><td>${fmtR(m*(1+IMPOSTO))}</td><td>${fmtR(waF)}<br><small>de ${f?fmtN(f.tpl*TARIFA_TPL):"—"}</small></td>
+      <td><b>${fmtR(eTot)}</b></td><td>${pTot?fmtR(pTot):"—"}</td><td class="${clsCons(eTot,pTot)}">${pTot?pc(eTot,pTot):"—"}</td></tr>`;
+  }
+  html += `<tr><td><b>Total</b></td>${FASES.map(k => `<td><b>${fmtR(soma(C.meta[k]))}</b></td>`).join("")}<td><b>${fmtR(C.metaTotal)}</b></td><td><b>${fmtR(C.metaTotal*(1+IMPOSTO))}</b></td><td><b>${fmtR(C.wa.total)}</b></td>
+    <td><b>${fmtR(tE)}</b></td><td><b>${fmtR(P.teto)}</b></td><td class="${clsCons(tE,P.teto)}"><b>${pc(tE,P.teto)}</b></td></tr></table></div>`;
+
+  // 1–4 · por fase (mesmo molde de setembro)
+  const tabelaMeta = (titulo, sub, fase) => {
+    let h = `<div class="rs-h"><h3>${titulo}</h3><span>${sub}</span></div><div class="rs-wrap"><table class="rs"><tr><th>Linha</th><th>Plano mês</th><th>Previsto até ${H}</th><th>Executado</th><th>Diferença</th><th>Resta no mês</th><th>Consumido</th></tr>`;
+    const T = {plano:0, prev:0, exec:0};
+    for (const fr of C.frentesTodas){
+      const plano = planoLinha(fr, fase), exec = C.g(fase, fr); if (!plano && exec < 0.5) continue;
+      const prev = previstoLinha(fr, fase, hoje), dif = exec - prev, resta = plano - exec, obs = P.frentes[fr]?.obs?.[fase];
+      T.plano += plano; T.prev += prev; T.exec += exec;
+      h += `<tr><td>${esc(NOME[fr])}${obs?`<br><small>${esc(obs)}</small>`:(!plano?`<br><small>fora do plano nesta fase</small>`:"")}</td><td>${fmtR(plano)}</td><td>${fmtR(prev)}</td><td><b>${fmtR(exec)}</b></td><td class="${clsDif(dif)}">${sDif(dif)}</td><td class="${resta<0?"bad":""}">${fmtR(resta)}</td><td class="${clsCons(exec,plano)}">${pc(exec,plano)}</td></tr>`;
+    }
+    const dif = T.exec - T.prev, resta = T.plano - T.exec;
+    h += `<tr><td><b>Total</b></td><td><b>${fmtR(T.plano)}</b></td><td><b>${fmtR(T.prev)}</b></td><td><b>${fmtR(T.exec)}</b></td><td class="${clsDif(dif)}"><b>${sDif(dif)}</b></td><td class="${resta<0?"bad":""}"><b>${fmtR(resta)}</b></td><td class="${clsCons(T.exec,T.plano)}"><b>${pc(T.exec,T.plano)}</b></td></tr></table></div>`;
+    return { h, T };
+  };
+  const f1 = tabelaMeta("1 · Fase 1 · atração (view-vídeo) · Meta", "campanhas [F1] por frente, criativo em vídeo, diária constante · R$ 10.000 no mês", "F1");
+  const f2 = tabelaMeta("2 · Fase 2 · corredor · Meta", "campanhas [F2] de conteúdo para quem assistiu 75% e para os cadastrados · R$ 8.500 no mês", "F2");
+  const f3 = tabelaMeta("3 · Fase 3 · link do webinário · Meta", "campanhas [WEB] para os públicos quentes · PRF por ingresso [ING] · Play Passei VSL [VSL] · R$ 30.700 no mês", "F3");
+  const bl = tabelaMeta("4 · Blindado (venda direta) · Meta", "campanhas [BLIND] em todas as frentes, exceto INSS · R$ 15.300 no mês · julgar só depois de 7 dias", "BLIND");
+
+  // 5 · WhatsApp
+  const tplPrevN = TPL_DIA.slice(0, diaIdx(hoje) + 1).reduce((a,b)=>a+b,0);
+  let wh = `<div class="rs-h"><h3>5 · WhatsApp da Anne · templates por concurso (R$ 0,35 cada)</h3><span>todo template enviado conta: disparo, régua do webinário, follow-up e retomada · concurso pelo nome da campanha de disparo ou pelo agente · espelho atualizado a cada 15 min</span></div>
+    <div class="rs-wrap"><table class="rs"><tr><th>Linha</th><th>Plano mês</th><th>Executado</th><th>Templates</th><th>Previstos no mês</th><th>Resta no mês</th><th>Consumido</th></tr>`;
+  for (const fr of C.frentesTodas){
+    const f = P.frentes[fr], e = C.wa.tpl[fr]||0, n = C.wa.tplN[fr]||0; if (!f && n === 0) continue;
+    const p = f ? f.tpl*TARIFA_TPL : null;
+    wh += `<tr><td>${esc(fr==="OUTRAS"?"Outros agentes (Pós, roteador, CS, sem concurso)":NOME[fr])}</td><td>${p!=null?fmtR(p):"—"}</td><td><b>${fmtR2(e)}</b></td><td>${fmtN(n)}</td><td>${f?fmtN(f.tpl):"—"}</td>
+      <td class="${p!=null&&p-e<0?"bad":""}">${p!=null?fmtR(p-e):"—"}</td><td class="${p!=null?clsCons(e,p):""}">${p!=null?pc(e,p):"—"}</td></tr>`;
+  }
+  const O = C.wa.origem;
+  wh += `<tr><td><b>Total de templates</b><br><small>previsto até ${H}: ${fmtN(tplPrevN)} templates (${fmtR(tplPrevN*TARIFA_TPL)})</small></td><td><b>${fmtR(P.tpl.valor)}</b></td><td><b>${fmtR2(C.wa.tplTotal)}</b></td><td><b>${fmtN(C.wa.tplTotalN)}</b></td><td><b>${fmtN(P.tpl.n)}</b></td>
+      <td class="${P.tpl.valor-C.wa.tplTotal<0?"bad":""}"><b>${fmtR(P.tpl.valor-C.wa.tplTotal)}</b></td><td class="${clsCons(C.wa.tplTotal,P.tpl.valor)}"><b>${pc(C.wa.tplTotal,P.tpl.valor)}</b></td></tr>
+    <tr><td>Respostas dentro da janela (R$ 0,05 cada)<br><small>Anne IA + humano + sistema · transversal</small></td><td>${fmtR(P.respostas.valor)}</td><td><b>${fmtR2(C.wa.respTotal)}</b></td><td>${fmtN(C.wa.respTotalN)}</td><td>${fmtN(P.respostas.n)}</td>
+      <td class="${P.respostas.valor-C.wa.respTotal<0?"bad":""}">${fmtR(P.respostas.valor-C.wa.respTotal)}</td><td class="${clsCons(C.wa.respTotal,P.respostas.valor)}">${pc(C.wa.respTotal,P.respostas.valor)}</td></tr></table></div>
+    <div class="note">De onde saem os templates do mês: disparo ${fmtN(O.disparo||0)} · régua do webinário ${fmtN(O.regua_webinario||0)} · follow-up ${fmtN(O.followup||0)} · retomada pelo vendedor ${fmtN(O.retomada||0)} · outros ${fmtN(O.outro||0)}. Nenhum template está aprovado como utilidade (R$ 0,05): confirmação de sala, "saiu cedo" e lembrete do PRF ao vivo são os candidatos (≈ 9.000 envios, R$ 2.700 a menos no mês).</div>`;
+
+  // 6 · fechamento do envelope
+  const metaPrev = ORDEM.reduce((a,fr) => a + FASES.reduce((b,k) => b + previstoLinha(fr, k, hoje), 0), 0);
+  const metaExec = C.metaTotal, imp = metaExec*IMPOSTO, impPrev = metaPrev*IMPOSTO;
+  const waPrev = tplPrevN*TARIFA_TPL + P.respostas.valor * (diaIdx(hoje)+1) / DIAS_MES;
+  const exec = metaExec + imp + C.wa.total, prev = metaPrev + impPrev + waPrev;
+  const outrasMeta = Object.keys(C.meta).filter(k => !FASES.includes(k)).reduce((a,k) => a + soma(C.meta[k]), 0) + FASES.reduce((a,k) => a + C.g(k,"OUTRAS"), 0);
+  const linha = (nome, plano, pv, ex, obs) => { const dif = pv==null ? null : ex - pv, resta = plano - ex;
+    return `<tr><td>${nome}${obs?`<br><small>${obs}</small>`:""}</td><td>${fmtR(plano)}</td><td>${pv==null?"—":fmtR(pv)}</td><td><b>${fmtR(ex)}</b></td><td class="${dif==null?"":clsDif(dif)}">${dif==null?"—":sDif(dif)}</td><td class="${resta<0?"bad":""}">${fmtR(resta)}</td><td class="${clsCons(ex,plano)}">${pc(ex,plano)}</td></tr>`; };
+  const fech = `<div class="rs-h"><h3>6 · Fechamento do envelope (teto de R$ 90 mil)</h3><span>Meta R$ 64.500 + imposto 13,83% = R$ 73.420 · WhatsApp R$ 16.500 (45.000 templates + 15.000 respostas) · reserva R$ 80 · a Black de alunos tem teto próprio</span></div>
+    <div class="rs-wrap"><table class="rs"><tr><th>Bloco</th><th>Plano mês</th><th>Previsto até ${H}</th><th>Executado</th><th>Diferença</th><th>Resta no mês</th><th>Consumido</th></tr>
+    ${linha("Meta — todas as campanhas", P.meta, metaPrev, metaExec, outrasMeta>0.5 ? `inclui ${fmtR(outrasMeta)} em campanhas sem fase ou concurso no nome` : "")}
+    ${linha("Imposto Meta 13,83%", P.imposto, impPrev, imp)}
+    ${linha("WhatsApp — templates", P.tpl.valor, tplPrevN*TARIFA_TPL, C.wa.tplTotal, `${fmtN(C.wa.tplTotalN)} de ${fmtN(P.tpl.n)} templates`)}
+    ${linha("WhatsApp — respostas da Anne", P.respostas.valor, P.respostas.valor*(diaIdx(hoje)+1)/DIAS_MES, C.wa.respTotal, `${fmtN(C.wa.respTotalN)} de ${fmtN(P.respostas.n)} respostas`)}
+    ${linha("Reserva", P.reserva, null, 0, "edital publicado no Diário Oficial ou mais blindado se o ROAS vier acima de 3×")}
+    ${linha("<b>Teto do mês</b>", P.teto, prev, exec)}
+    ${C.black.meta > 0.5 ? `<tr><td>Black de alunos [BLACK]<br><small>fora do teto de R$ 90 mil · painel próprio</small></td><td>—</td><td>—</td><td><b>${fmtR(C.black.meta)}</b></td><td>—</td><td>—</td><td>—</td></tr>` : ""}
+    </table></div>`;
+
+  // campanhas sem etiqueta
+  const sem = Object.entries(C.semEtiqueta).sort((a,b) => b[1]-a[1]);
+  const semH = sem.length ? `<details class="dsp"><summary><b>${sem.length} campanha${sem.length>1?"s":""} com gasto sem fase ou concurso reconhecido no nome</b> — ${fmtR(sem.reduce((a,x)=>a+x[1],0))} · renomear para o gasto cair na linha certa</summary>
+    <div class="rs-wrap"><table class="rs"><tr><th>Campanha</th><th>Gasto no mês</th></tr>${sem.map(([n,v]) => `<tr><td style="white-space:normal">${esc(n)}</td><td>${fmtR2(v)}</td></tr>`).join("")}</table></div></details>` : "";
+
+  const diasRest = diasEntre(diaMais(hoje,1), MES_FIM), metaResta = P.meta - metaExec;
+  const notas = [
+    `<b>Meta:</b> ${fmtR(metaExec)} executados contra ${fmtR(metaPrev)} previstos até hoje (${sDif(metaExec-metaPrev)}). ${diasRest > 0 ? `Para gastar os ${fmtR(metaResta)} que restam em ${diasRest} dias a média é ${fmtR(metaResta/diasRest)}/dia — a mídia do plano é constante em R$ 2.081/dia.` : "Último dia do mês."}`,
+    `<b>WhatsApp:</b> ${fmtN(C.wa.tplTotalN)} templates e ${fmtN(C.wa.respTotalN)} respostas = ${fmtR2(C.wa.total)} de R$ 16.500 (${pc(C.wa.total, P.whatsapp)}). Cada toque custa R$ 0,35: cortar follow-up sem função e abrir a conversa com template de utilidade.`,
+    `<b>Custo de tráfego do mês até agora:</b> ${fmtR(exec)} (Meta com imposto + WhatsApp) de R$ 90.000.`,
+  ];
+  html += f1.h + f2.h + f3.h + bl.h + wh + fech + semH + `<div class="note" style="margin-top:10px">${notas.join("<br>")}</div>`;
+  $("gasto").innerHTML = html;
+}
+
+/* ---- 4 · leituras automáticas ---- */
+function renderInsights(){
+  const out = []; const add = (cls, ic, k, t) => out.push({cls,ic,k,t});
+  const R = ritmo(), P = PLANO, T = C.T, hoje = R.hoje, diaN = diaIdx(hoje) + 1, restam = DIAS_MES - diaN + 1;
+  // ritmo da meta
+  if (R.mesFechado) add(C.medido >= META ? "good" : C.medido >= PISO ? "warn" : "bad", "🏁", "Fechamento do mês", `Outubro fechou com <b>${fmtK(C.medido)}</b> líquidos — ${Math.round(C.medido/META*100)}% da meta de R$ 366 mil (piso R$ 341 mil · cheia R$ 399 mil).`);
+  else if (R.fechado){
+    const dif = R.medFech - R.metaFech, precisa = Math.max(META - C.medido, 0) / Math.max(restam, 1);
+    add(dif >= 0 ? "good" : R.razao >= 0.9 ? "warn" : "bad", "🎯", "Ritmo da meta",
+      `Até ${ddmm(R.fechado)}: <b>${fmtK(R.medFech)}</b> medidos contra <b>${fmtK(R.metaFech)}</b> da meta acumulada (${dif>=0?"+":""}${fmtK(dif)}). Para fechar R$ 366 mil faltam <b>${fmtK(precisa)}/dia</b> nos ${restam} dias que restam, contando hoje${R.proj!=null?` — no ritmo atual o mês fecha em <b>${fmtK(R.proj)}</b>`:""}.`);
+  } else add("info", "🎯", "Ritmo da meta", `Primeiro dia do plano: <b>${fmtK(C.medido)}</b> medidos até agora contra meta do dia de ${fmtK(META_DIA[0])}. O acumulado passa a ser julgado a partir de amanhã.`);
+  // composição
+  if (C.medido > 0) add("info", "🧩", "De onde vem a receita", `Entrega do tráfego <b>${fmtK(C.linhas.trafego)}</b> · recorrência <b>${fmtK(C.linhas.rec)}</b> · comercial fora do funil ${fmtK(C.linhas.comercial)} · CS ${fmtK(C.linhas.cs)} · outros ${fmtK(C.linhas.outros)}. Recorrência do plano: R$ 105 mil no mês.`);
+  // verba
+  const metaPrev = ORDEM.reduce((a,fr) => a + FASES.reduce((b,k) => b + previstoLinha(fr, k, hoje), 0), 0);
+  const gOntem = R.fechado ? soma(C.metaDia[R.fechado]) : null, dOntem = R.fechado ? ORDEM.reduce((a,fr) => a + diariaFrente(fr, R.fechado), 0) : null;
+  add(C.metaTotal > metaPrev*1.15 ? "warn" : "good", "💸", "Verba",
+    `Meta: <b>${fmtR(C.metaTotal)}</b> gastos no mês contra ${fmtR(metaPrev)} previstos até hoje${gOntem!=null?` · ontem ${fmtR(gOntem)} para uma diária de ${fmtR(dOntem)}`:""}. WhatsApp: <b>${fmtR(C.wa.total)}</b> (${fmtN(C.wa.tplTotalN)} templates). Custo total com imposto: <b>${fmtR(T.custo)}</b> de R$ 90 mil.`);
+  // ROAS
+  if (T.custo > 300) add(T.roasFunil >= P.roasAlvo[0] ? "good" : T.roasFunil >= 1.8 ? "warn" : "bad", "📈", "ROAS do mês",
+    `Regra do painel <b>${fmtX(T.roasPainel)}</b> (plano ${fmtX(P.roasPainel)}) · funil completo <b>${fmtX(T.roasFunil)}</b> (plano ${fmtX(P.roasFunil)} · alvo 2,6× a 3×). ${diaN <= 7 ? "Primeira semana: a venda de hoje ainda é lead de setembro — não julgar campanha por este número." : ""}`);
+  // concursos
+  const mad = C.roas.filter(r => MADURAS.includes(r.fr) && r.custo >= 1000 && r.roasFunil != null).sort((a,b) => b.roasFunil - a.roasFunil);
+  if (mad.length >= 2) add("info", "⚖️", "Concursos lado a lado", `Melhor: <b>${esc(NOME[mad[0].fr])}</b> ${fmtX(mad[0].roasFunil)} · pior: <b>${esc(NOME[mad[mad.length-1].fr])}</b> ${fmtX(mad[mad.length-1].roasFunil)} (frentes maduras, funil completo). PCs-AM, INSS e Play Passei ficam fora desta régua.`);
+  // blindado
+  if (C.BT.custo > 100) add(C.BT.roas >= P.roasBlind ? "good" : C.BT.roas >= 2 ? "warn" : diaN <= 7 ? "info" : "bad", "🛡️", "Venda direta",
+    `Blindado no montante: <b>${fmtX(C.BT.roas)}</b> — ${fmtR(C.BT.ret)} em ${C.BT.n} vendas no site sobre ${fmtR(C.BT.custo)} (plano ${fmtX(P.roasBlind)}; setembro 5,49×). ${diaN <= 7 ? "Menos de 7 dias rodando: não pausar." : ""}`);
+  // WhatsApp
+  const tplPrevN = TPL_DIA.slice(0, diaN).reduce((a,b)=>a+b,0);
+  if (C.wa.tplTotalN > 0 || tplPrevN > 0) add(C.wa.tplTotalN > tplPrevN*1.2 ? "warn" : "info", "💬", "WhatsApp",
+    `<b>${fmtN(C.wa.tplTotalN)}</b> templates enviados contra ${fmtN(tplPrevN)} previstos até hoje (o plano concentra as ondas da base em 01, 06 e 13/10). Respostas dentro da janela: ${fmtN(C.wa.respTotalN)}. Custo: <b>${fmtR2(C.wa.total)}</b>.`);
+  // frentes novas
+  const nov = [["SEMSA","2026-10-08","webinário"],["PLAYPASSEI","2026-10-09","funil VSL + CEI"],["INSS","2026-10-14","webinário"]];
+  for (const [fr, d, o] of nov){
+    const leads = C.web[fr]?.inscritos || 0, gasto = C.g("F3", fr), vend = fr === "PLAYPASSEI" ? C.qtd(fr,"pp") : C.qtd(fr,"web");
+    if (hoje < d) continue;
+    if (leads || gasto > 1 || vend) add("good", "🚀", NOME[fr] + " · frente nova", `No ar desde ${ddmm(d)}: ${fmtR(gasto)} de mídia${fr!=="PLAYPASSEI"?` · <b>${fmtN(leads)}</b> leads no webinário`:""} · <b>${vend}</b> venda${vend===1?"":"s"}.`);
+    else add("bad", "⏰", NOME[fr] + " · marco vencido", `O ${o} deveria estar no ar desde ${ddmm(d)} e ainda não há gasto na Fase 3 nem lead. Sem ${o} a frente não entra na Fase 3 e a meta cheia fica mais longe.`);
+  }
+  if (hoje > "2026-10-06" && !C.web.POLICIAS && C.g("F3","POLICIAS") < 1) add("bad", "⏰", "Elite PCs-AM · funil", `O funil do PCs-AM (webinário automatizado + blindado com PIX parcelado) tinha prazo até 06/10 e ainda não há lead de webinário. A verba de PCs dobrou e só rende com o funil pronto.`);
+  // nomes
+  const sem = Object.entries(C.semEtiqueta); if (sem.length){ const v = sem.reduce((a,x)=>a+x[1],0);
+    if (v > 20) add("warn", "🏷️", "Nome das campanhas", `<b>${sem.length}</b> campanha${sem.length>1?"s":""} com gasto (${fmtR(v)}) sem fase ou concurso reconhecido no nome — a lista está na aba Gasto. Sem etiqueta o painel não separa o ROAS por concurso.`); }
+  $("insights").innerHTML = out.map(o => `<div class="in ${o.cls}"><div class="ic">${o.ic}</div><div class="t"><span class="k">${o.k}</span>${o.t}</div></div>`).join("") || `<div class="in info"><div class="ic">⏳</div><div class="t">Sem dados suficientes ainda.</div></div>`;
+}
+
+/* ---- 3 · alertas ---- */
+function renderAlertas(){
+  const alerts = [], R = ritmo(), hoje = R.hoje, P = PLANO;
+  if (R.fechado && R.razao != null && R.razao < 0.9)
+    alerts.push({sev: R.razao < 0.75 ? "crit" : "warn", t:"Receita abaixo da meta acumulada", v: fmtR(R.medFech) + " de " + fmtR(R.metaFech) + " até " + ddmm(R.fechado) + " (" + Math.round(R.razao*100) + "%)"});
+  if (R.fechado){
+    const g = soma(C.metaDia[R.fechado]), d = ORDEM.reduce((a,fr) => a + diariaFrente(fr, R.fechado), 0);
+    if (g > d * 1.15) alerts.push({sev: g > d * 1.4 ? "crit" : "warn", t:"Gasto de ONTEM acima da diária do plano", v: fmtR2(g) + " vs " + fmtR(d) + " — conferir qual frente estourou"});
+  }
+  for (const fr of ORDEM) for (const k of FASES){
+    const plano = planoLinha(fr, k), exec = C.g(k, fr), prev = previstoLinha(fr, k, hoje);
+    if (plano > 0 && exec > plano) alerts.push({sev:"crit", t: NOME[fr] + " · " + FASE_NOME[k] + ": linha do mês estourada", v: fmtR(exec) + " de " + fmtR(plano)});
+    else if (plano > 0 && exec - prev > 300 && exec > prev * 1.3) alerts.push({sev:"warn", t: NOME[fr] + " · " + FASE_NOME[k] + ": acima do previsto", v: fmtR(exec) + " vs " + fmtR(prev) + " previstos até hoje"});
+  }
+  const tplPrev = TPL_DIA.slice(0, diaIdx(hoje) + 1).reduce((a,b)=>a+b,0);
+  if (C.wa.total > P.whatsapp) alerts.push({sev:"crit", t:"WhatsApp passou do orçamento do mês", v: fmtR2(C.wa.total) + " de R$ 16.500"});
+  else if (C.wa.tplTotalN > tplPrev * 1.25 && C.wa.tplTotalN - tplPrev > 1500) alerts.push({sev:"warn", t:"Templates acima do previsto até hoje", v: fmtN(C.wa.tplTotalN) + " enviados vs " + fmtN(tplPrev) + " previstos"});
+  for (const fr of ORDEM){
+    const t = C.web[fr]; if (!t) continue;
+    if (t.cpl != null && t.inscritos >= 30){
+      if (t.cpl > CPL_FAIXA.stop) alerts.push({sev:"crit", t:"Custo por lead " + NOME[fr] + " acima da régua", v: fmtCusto(t.cpl) + " (cortar > R$ " + CPL_FAIXA.stop + ") — trocar criativo antes de cortar verba"});
+      else if (t.cpl > CPL_FAIXA.ok) alerts.push({sev:"warn", t:"Custo por lead " + NOME[fr] + " na zona de atenção", v: fmtCusto(t.cpl) + " (setembro: R$ 9 a 11)"});
+    }
+    const checks = [["Sala", pct(t.sala,t.inscritos), METAS_FUNIL.sala, t.inscritos], ["Pitch", pct(t.pitch,t.sala), METAS_FUNIL.pitch, t.sala], ["Checkout", pct(t.checkout,t.pitch), METAS_FUNIL.checkout, t.pitch]];
+    for (const [et, p, meta, den] of checks)
+      if (p != null && den >= 30 && p < meta) alerts.push({sev:"warn", t:"Funil " + NOME[fr] + ": etapa " + et + " abaixo da régua", v: fmtPct(p) + " vs " + Math.round(meta*100) + "%"});
+  }
+  $("alertas").innerHTML = alerts.length
+    ? alerts.map(a=>`<div class="alert-row ${a.sev==="warn"?"warn":""}"><div class="an">${esc(a.t)}</div><div class="av">${esc(a.v)}</div></div>`).join("")
+    : `<div class="all-ok"><span class="ic">✓</span> Tudo na régua — receita no ritmo da meta, verba dentro do plano e funil nas faixas.</div>`;
+}
+
+load();
+setInterval(load, 300000); // 5 min
+</script>
+</body>
+</html>
